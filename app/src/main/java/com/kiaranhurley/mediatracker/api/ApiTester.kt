@@ -51,9 +51,10 @@ object ApiTester {
                 return
             }
             
+            // Improved IGDB query format
             val searchQuery = """
-                fields name,summary,first_release_date,aggregated_rating,cover.url;
-                search "The Witcher 3";
+                fields name,summary,first_release_date,aggregated_rating;
+                search "Witcher 3";
                 limit 5;
             """.trimIndent()
 
@@ -67,7 +68,7 @@ object ApiTester {
                 val games = response.body()
                 Log.d("API_TEST", "✅ IGDB Success: Found ${games?.size} games")
                 games?.firstOrNull()?.let { game ->
-                    Log.d("API_TEST", "First game: ${game.name}")
+                    Log.d("API_TEST", "First game: ${game.name ?: "ID: ${game.id}"}")
                 }
             } else {
                 Log.e("API_TEST", "❌ IGDB Error: ${response.code()} - ${response.message()}")
