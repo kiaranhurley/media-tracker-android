@@ -21,7 +21,10 @@ object ApiTester {
     private suspend fun testTmdbApi() {
         try {
             Log.d("API_TEST", "Testing TMDB API...")
-            val response = ApiConfig.tmdbService.searchMovies(query = "Inception")
+            val response = ApiConfig.tmdbService.searchMovies(
+                apiKey = ApiConfig.getTmdbApiKey(),
+                query = "Inception"
+            )
 
             if (response.isSuccessful) {
                 val movies = response.body()
@@ -40,15 +43,23 @@ object ApiTester {
     private suspend fun testIgdbApi() {
         try {
             Log.d("API_TEST", "Testing IGDB API...")
+            
+            // Get access token first
+            val accessToken = ApiConfig.getIgdbAccessToken()
+            if (accessToken == null) {
+                Log.e("API_TEST", "❌ Failed to get IGDB access token")
+                return
+            }
+            
             val searchQuery = """
                 fields name,summary,first_release_date,aggregated_rating,cover.url;
                 search "The Witcher 3";
                 limit 5;
             """.trimIndent()
 
-            // Note: You need to replace this with a real access token
             val response = ApiConfig.igdbService.searchGames(
-                authorization = "Bearer YOUR_ACCESS_TOKEN",
+                clientId = ApiConfig.getIgdbClientId(),
+                authorization = "Bearer $accessToken",
                 query = searchQuery
             )
 

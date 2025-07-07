@@ -61,12 +61,16 @@ dependencies {
 
     // Image loading
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
+    implementation("io.coil-kt:coil-compose:2.5.0")
 
     // Navigation for Compose
     implementation("androidx.navigation:navigation-compose:2.7.6")
 
     // ViewModels for Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
     // Bottom Navigation
     implementation("androidx.compose.material:material:1.5.8")

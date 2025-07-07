@@ -84,7 +84,10 @@ class MainActivity : ComponentActivity() {
                 isLoading = true
                 try {
                     addResult("🔄 Testing TMDB API...")
-                    val response = ApiConfig.tmdbService.searchMovies(query = "Inception")
+                    val response = ApiConfig.tmdbService.searchMovies(
+                        apiKey = ApiConfig.getTmdbApiKey(),
+                        query = "Inception"
+                    )
 
                     if (response.isSuccessful) {
                         val movieResults = response.body()
@@ -110,16 +113,27 @@ class MainActivity : ComponentActivity() {
             lifecycleScope.launch {
                 isLoading = true
                 try {
+                    addResult("🔄 Getting IGDB access token...")
+
+                    // First, get the access token
+                    val accessToken = ApiConfig.getIgdbAccessToken()
+                    if (accessToken == null) {
+                        addResult("❌ Failed to get IGDB access token")
+                        return@launch
+                    }
+
+                    addResult("✅ Got IGDB access token")
                     addResult("🔄 Testing IGDB API...")
+
                     val searchQuery = """
                         fields name,summary,first_release_date,aggregated_rating;
                         search "The Witcher 3";
                         limit 3;
                     """.trimIndent()
 
-                    // Note: This will fail without a real access token
                     val response = ApiConfig.igdbService.searchGames(
-                        authorization = "Bearer YOUR_ACCESS_TOKEN",
+                        clientId = ApiConfig.getIgdbClientId(),
+                        authorization = "Bearer $accessToken",
                         query = searchQuery
                     )
 
@@ -131,7 +145,8 @@ class MainActivity : ComponentActivity() {
                         }
                     } else {
                         addResult("❌ IGDB API Error: ${response.code()}")
-                        addResult("ℹ️ Note: IGDB needs a real access token")
+                        val errorBody = response.errorBody()?.string()
+                        addResult("❌ Error details: $errorBody")
                     }
                 } catch (e: Exception) {
                     addResult("❌ IGDB Exception: ${e.message}")
@@ -187,6 +202,15 @@ class MainActivity : ComponentActivity() {
                             ) {
                                 Text("Test Database")
                             }
+
+                            Button(
+                                onClick = { testTmdbApi() },
+                                enabled = !isLoading,
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Text("Test TMDB")
+                            }
+                        }
 
                             Button(
                                 onClick = { testTmdbApi() },

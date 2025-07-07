@@ -1,3 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MediaTracker</string>
+    
+    <!-- API Configuration -->
+    <string name="tmdb_api_key">b95e021fc72736385b6e642b62d2ae2a</string>
+    <string name="igdb_client_id">j9otfot2lil3s2og262w0z9soif80l</string>
+    <string name="igdb_client_secret">wckw0991tvnv5ab4oibmsr7gj3duxe</string>
+    
+    <!-- API URLs -->
+    <string name="tmdb_base_url">https://api.themoviedb.org/3/</string>
+    <string name="igdb_base_url">https://api.igdb.com/v4/</string>
+    <string name="igdb_auth_url">https://id.twitch.tv/</string>
 </resources>
