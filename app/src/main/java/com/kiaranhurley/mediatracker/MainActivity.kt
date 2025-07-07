@@ -212,15 +212,6 @@ class MainActivity : ComponentActivity() {
                             }
                         }
 
-                            Button(
-                                onClick = { testTmdbApi() },
-                                enabled = !isLoading,
-                                modifier = Modifier.weight(1f)
-                            ) {
-                                Text("Test TMDB")
-                            }
-                        }
-
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
@@ -339,7 +330,7 @@ class MainActivity : ComponentActivity() {
                         Text(
                             text = "• Test Database: Creates a test user and verifies storage\n" +
                                     "• Test TMDB: Searches for movies using your API key\n" +
-                                    "• Test IGDB: Will fail without access token (expected)\n" +
+                                    "• Test IGDB: Gets access token and searches games\n" +
                                     "• Check Logcat for detailed API responses",
                             style = MaterialTheme.typography.bodySmall
                         )

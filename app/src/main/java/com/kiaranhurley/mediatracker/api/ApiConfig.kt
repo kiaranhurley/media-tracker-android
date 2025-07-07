@@ -1,6 +1,7 @@
 package com.kiaranhurley.mediatracker.api
 
 import android.content.Context
+import com.kiaranhurley.mediatracker.R
 import com.kiaranhurley.mediatracker.api.services.TmdbService
 import com.kiaranhurley.mediatracker.api.services.IgdbService
 import com.kiaranhurley.mediatracker.api.services.IgdbAuthService
