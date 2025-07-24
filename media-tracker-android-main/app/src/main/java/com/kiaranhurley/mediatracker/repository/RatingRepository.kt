@@ -12,6 +12,13 @@ class RatingRepository @Inject constructor(
 ) {
     
     /**
+     * Get a rating by its ID
+     */
+    suspend fun getRatingById(ratingId: Int): Rating? {
+        return ratingDao.getRatingById(ratingId)
+    }
+    
+    /**
      * Get a user's rating for a specific item
      */
     suspend fun getUserRating(userId: Int, itemId: Int, itemType: String): Rating? {

@@ -24,7 +24,8 @@ object DatabaseModule {
             context.applicationContext,
             MediaTrackerDatabase::class.java,
             "media_tracker_database"
-        ).build()
+        ).fallbackToDestructiveMigration(true) // This prevents crashes by recreating DB when needed
+        .build()
     }
 
     @Provides

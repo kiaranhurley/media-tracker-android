@@ -6,6 +6,9 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RatingDao {
+    @Query("SELECT * FROM ratings WHERE ratingId = :ratingId")
+    suspend fun getRatingById(ratingId: Int): Rating?
+
     @Query("SELECT * FROM ratings WHERE userId = :userId AND itemId = :itemId AND itemType = :itemType")
     suspend fun getUserRating(userId: Int, itemId: Int, itemType: String): Rating?
 

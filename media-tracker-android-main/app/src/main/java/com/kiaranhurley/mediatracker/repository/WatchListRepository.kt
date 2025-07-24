@@ -63,7 +63,7 @@ class WatchListRepository @Inject constructor(
     /**
      * Check if an item is in the user's watchlist
      */
-    suspend fun isInWatchList(userId: Int, itemId: Int, itemType: String): Boolean {
+    suspend fun isItemInWatchlist(userId: Int, itemId: Int, itemType: String): Boolean {
         return watchListDao.getWatchListItem(userId, itemId, itemType) != null
     }
     

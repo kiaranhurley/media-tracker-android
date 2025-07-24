@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -35,13 +36,14 @@ class FilmCatalogViewModel @Inject constructor(
         _state.value = FilmCatalogState.Loading
         viewModelScope.launch {
             try {
-                filmRepository.getAllFilmsOrderedByPopularity()
-                    .catch { e ->
-                        _state.value = FilmCatalogState.Error(e.message ?: "Failed to load films")
+                // Try to get popular films from API first, then fallback to local
+                val films = try {
+                    filmRepository.getPopularFilmsFromApi()
+                } catch (e: Exception) {
+                    // Fallback to local data if API fails
+                    filmRepository.getAllFilmsOrderedByPopularity().firstOrNull() ?: emptyList()
                     }
-                    .collect { films ->
                         _state.value = FilmCatalogState.Success(films)
-                    }
             } catch (e: Exception) {
                 _state.value = FilmCatalogState.Error(e.message ?: "Failed to load films")
             }
@@ -57,7 +59,13 @@ class FilmCatalogViewModel @Inject constructor(
         _state.value = FilmCatalogState.Loading
         viewModelScope.launch {
             try {
-                val films = filmRepository.searchFilms(query)
+                // Try API search first, then fallback to local search
+                val films = try {
+                    filmRepository.searchFilmsFromApi(query)
+                } catch (e: Exception) {
+                    // Fallback to local search if API fails
+                    filmRepository.searchFilms(query)
+                }
                 _state.value = FilmCatalogState.Success(films)
             } catch (e: Exception) {
                 _state.value = FilmCatalogState.Error(e.message ?: "Search failed")

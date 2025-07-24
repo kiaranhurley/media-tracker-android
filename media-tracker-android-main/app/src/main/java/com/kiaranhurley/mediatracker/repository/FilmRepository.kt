@@ -82,6 +82,13 @@ class FilmRepository @Inject constructor(
     }
     
     /**
+     * Delete all films (clear database)
+     */
+    suspend fun deleteAllFilms() {
+        filmDao.deleteAllFilms()
+    }
+    
+    /**
      * Get recent films
      */
     suspend fun getRecentFilms(limit: Int = 10): List<Film> {

@@ -29,4 +29,7 @@ interface FilmDao {
 
     @Query("SELECT * FROM films ORDER BY createdAt DESC LIMIT :limit")
     suspend fun getRecentFilms(limit: Int): List<Film>
+    
+    @Query("DELETE FROM films")
+    suspend fun deleteAllFilms()
 }

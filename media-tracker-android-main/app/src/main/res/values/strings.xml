@@ -5,7 +5,7 @@
     <!-- API Configuration -->
     <string name="tmdb_api_key">b95e021fc72736385b6e642b62d2ae2a</string>
     <string name="igdb_client_id">j9otfot2lil3s2og262w0z9soif80l</string>
-    <string name="igdb_client_secret">wckw0991tvnv5ab4oibmsr7gj3duxe</string>
+    <string name="igdb_client_secret">sus6hkdw75qjqee4bgxrk56anqd6ih</string>
     
     <!-- API URLs -->
     <string name="tmdb_base_url">https://api.themoviedb.org/3/</string>

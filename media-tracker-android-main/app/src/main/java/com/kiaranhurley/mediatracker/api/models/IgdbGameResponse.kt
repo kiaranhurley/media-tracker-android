@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class IgdbGameResponse(
     val id: Int,
-    val name: String,
+    val name: String?,
     val summary: String?,
     @SerializedName("first_release_date")
     val firstReleaseDate: Long?, // Unix timestamp

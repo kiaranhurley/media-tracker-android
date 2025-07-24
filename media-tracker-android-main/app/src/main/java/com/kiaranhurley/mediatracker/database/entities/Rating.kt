@@ -24,7 +24,8 @@ data class Rating(
     val userId: Int,
     val itemId: Int,
     val itemType: String, // "FILM" or "GAME"
-    val rating: Float, // 0.0 to 10.0
+    val rating: Float, // 0.0 to 5.0
+    val isPrivate: Boolean = false, // New privacy field
     val createdAt: Date = Date(),
     val updatedAt: Date = Date()
 )

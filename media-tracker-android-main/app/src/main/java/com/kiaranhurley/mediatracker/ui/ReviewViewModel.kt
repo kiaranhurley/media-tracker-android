@@ -2,10 +2,10 @@ package com.kiaranhurley.mediatracker.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kiaranhurley.mediatracker.database.entities.Review
 import com.kiaranhurley.mediatracker.database.entities.Rating
-import com.kiaranhurley.mediatracker.repository.ReviewRepository
+import com.kiaranhurley.mediatracker.database.entities.Review
 import com.kiaranhurley.mediatracker.repository.RatingRepository
+import com.kiaranhurley.mediatracker.repository.ReviewRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -63,6 +63,32 @@ class ReviewViewModel @Inject constructor(
                 _state.value = ReviewState.Success
             } catch (e: Exception) {
                 _state.value = ReviewState.Error(e.message ?: "Failed to delete review")
+            }
+        }
+    }
+
+    fun toggleReviewPrivacy(review: Review) {
+        _state.value = ReviewState.Loading
+        viewModelScope.launch {
+            try {
+                val updatedReview = review.copy(isPrivate = !review.isPrivate)
+                reviewRepository.updateReview(updatedReview)
+                _state.value = ReviewState.Success
+            } catch (e: Exception) {
+                _state.value = ReviewState.Error(e.message ?: "Failed to toggle review privacy")
+            }
+        }
+    }
+
+    fun toggleRatingPrivacy(rating: Rating) {
+        _state.value = ReviewState.Loading
+        viewModelScope.launch {
+            try {
+                val updatedRating = rating.copy(isPrivate = !rating.isPrivate)
+                ratingRepository.updateRating(updatedRating)
+                _state.value = ReviewState.Success
+            } catch (e: Exception) {
+                _state.value = ReviewState.Error(e.message ?: "Failed to toggle rating privacy")
             }
         }
     }

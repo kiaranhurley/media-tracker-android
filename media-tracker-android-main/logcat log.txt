@@ -1,0 +1,565 @@
+---------------------------- PROCESS STARTED (2062) for package com.kiaranhurley.mediatracker ----------------------------
+2025-07-23 14:09:11.418  2062-2062  nativeloader            com.kiaranhurley.mediatracker        D  Configuring clns-9 for other apk /data/app/~~im5E5LUtYk6ad5rn2vQLlw==/com.kiaranhurley.mediatracker-2PBD-GHzBQ4rSuqzgrRCiQ==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~im5E5LUtYk6ad5rn2vQLlw==/com.kiaranhurley.mediatracker-2PBD-GHzBQ4rSuqzgrRCiQ==/lib/x86_64:/data/app/~~im5E5LUtYk6ad5rn2vQLlw==/com.kiaranhurley.mediatracker-2PBD-GHzBQ4rSuqzgrRCiQ==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.kiaranhurley.mediatracker
+2025-07-23 14:09:11.431  2062-2062  ey.mediatracker         com.kiaranhurley.mediatracker        I  AssetManager2(0x7f98246e4a78) locale list changing from [] to [en-US]
+2025-07-23 14:09:11.434  2062-2062  ey.mediatracker         com.kiaranhurley.mediatracker        I  AssetManager2(0x7f98246e1238) locale list changing from [] to [en-US]
+2025-07-23 14:09:11.446  2062-2062  GraphicsEnvironment     com.kiaranhurley.mediatracker        V  Currently set values for:
+2025-07-23 14:09:11.446  2062-2062  GraphicsEnvironment     com.kiaranhurley.mediatracker        V    angle_gl_driver_selection_pkgs=[]
+2025-07-23 14:09:11.446  2062-2062  GraphicsEnvironment     com.kiaranhurley.mediatracker        V    angle_gl_driver_selection_values=[]
+2025-07-23 14:09:11.446  2062-2062  GraphicsEnvironment     com.kiaranhurley.mediatracker        V  com.kiaranhurley.mediatracker is not listed in per-application setting
+2025-07-23 14:09:11.446  2062-2062  GraphicsEnvironment     com.kiaranhurley.mediatracker        V  ANGLE allowlist from config: 
+2025-07-23 14:09:11.446  2062-2062  GraphicsEnvironment     com.kiaranhurley.mediatracker        V  com.kiaranhurley.mediatracker is not listed in ANGLE allowlist or settings, returning default
+2025-07-23 14:09:11.446  2062-2062  GraphicsEnvironment     com.kiaranhurley.mediatracker        V  Neither updatable production driver nor prerelease driver is supported.
+2025-07-23 14:09:11.662  2062-2062  MediaTracker            com.kiaranhurley.mediatracker        D  ✅ APIs initialized successfully
+2025-07-23 14:09:11.822  2062-2260  MediaTracker            com.kiaranhurley.mediatracker        D  🧪 Testing API connections...
+2025-07-23 14:09:11.822  2062-2260  System.out              com.kiaranhurley.mediatracker        I  DEBUG: Testing IGDB credentials...
+2025-07-23 14:09:11.884  2062-2265  DisplayManager          com.kiaranhurley.mediatracker        I  Choreographer implicitly registered for the refresh rate.
+2025-07-23 14:09:11.887  2062-2260  System.out              com.kiaranhurley.mediatracker        I  DEBUG: Client ID: j9otfot2li...
+2025-07-23 14:09:11.901  2062-2062  ey.mediatracker         com.kiaranhurley.mediatracker        I  AssetManager2(0x7f98246e21d8) locale list changing from [] to [en-US]
+2025-07-23 14:09:11.941  2062-2265  EGL_emulation           com.kiaranhurley.mediatracker        I  Opening libGLESv1_CM_emulation.so
+2025-07-23 14:09:11.941  2062-2265  EGL_emulation           com.kiaranhurley.mediatracker        I  Opening libGLESv2_emulation.so
+2025-07-23 14:09:11.947  2062-2265  HWUI                    com.kiaranhurley.mediatracker        W  Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+2025-07-23 14:09:11.947  2062-2265  HWUI                    com.kiaranhurley.mediatracker        W  Failed to initialize 101010-2 format, error = EGL_SUCCESS
+2025-07-23 14:09:12.030  2062-2062  ashmem                  com.kiaranhurley.mediatracker        E  Pinning is deprecated since Android Q. Please use trim or other methods.
+2025-07-23 14:09:12.251  2062-2062  CompatChangeReporter    com.kiaranhurley.mediatracker        D  Compat change id reported: 377864165; UID 10215; state: ENABLED
+2025-07-23 14:09:12.254  2062-2062  DesktopModeFlags        com.kiaranhurley.mediatracker        D  Toggle override initialized to: OVERRIDE_UNSET
+2025-07-23 14:09:12.447  2062-2062  HWUI                    com.kiaranhurley.mediatracker        W  Unknown dataspace 0
+2025-07-23 14:09:12.479  2062-2062  Choreographer           com.kiaranhurley.mediatracker        I  Skipped 53 frames!  The application may be doing too much work on its main thread.
+2025-07-23 14:09:12.971  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> POST https://id.twitch.tv/oauth2/token
+2025-07-23 14:09:12.971  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Type: application/x-www-form-urlencoded
+2025-07-23 14:09:12.987  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Length: 115
+2025-07-23 14:09:12.989  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  client_id=j9otfot2lil3s2og262w0z9soif80l&client_secret=sus6hkdw75qjqee4bgxrk56anqd6ih&grant_type=client_credentials
+2025-07-23 14:09:12.993  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> END POST (115-byte body)
+2025-07-23 14:09:15.109  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- 200 https://id.twitch.tv/oauth2/token (2088ms)
+2025-07-23 14:09:15.109  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  date: Wed, 23 Jul 2025 13:09:15 GMT
+2025-07-23 14:09:15.109  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-type: application/json
+2025-07-23 14:09:15.110  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-length: 93
+2025-07-23 14:09:15.110  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  server: nginx
+2025-07-23 14:09:15.110  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  access-control-allow-origin: *
+2025-07-23 14:09:15.110  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-ctxlog-logid: 1-6880defb-626808fb54e20b0b347ea060
+2025-07-23 14:09:15.144  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  {"access_token":"t4eqsf1gys9ix712cfx68cvo32i57a","expires_in":4749954,"token_type":"bearer"}
+2025-07-23 14:09:15.144  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- END HTTP (93-byte body)
+2025-07-23 14:09:15.383  2062-2260  System.out              com.kiaranhurley.mediatracker        I  DEBUG: ✅ IGDB credentials work! Token: t4eqsf1gys...
+2025-07-23 14:09:15.465  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> POST https://api.igdb.com/v4/games
+2025-07-23 14:09:15.483  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Type: text/plain
+2025-07-23 14:09:15.485  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Length: 23
+2025-07-23 14:09:15.487  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Client-ID: j9otfot2lil3s2og262w0z9soif80l
+2025-07-23 14:09:15.488  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Authorization: Bearer t4eqsf1gys9ix712cfx68cvo32i57a
+2025-07-23 14:09:15.501  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  "fields name; limit 1;"
+2025-07-23 14:09:15.501  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> END POST (23-byte body)
+2025-07-23 14:09:16.440  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- 200 https://api.igdb.com/v4/games (936ms)
+2025-07-23 14:09:16.465  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  date: Wed, 23 Jul 2025 13:09:16 GMT
+2025-07-23 14:09:16.484  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-type: application/json
+2025-07-23 14:09:16.484  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-remapped-date: Wed, 23 Jul 2025 13:09:16 GMT
+2025-07-23 14:09:16.484  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-requestid: da7608f5-a174-4ea7-8e8e-21f36eb45891
+2025-07-23 14:09:16.484  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-remapped-content-length: 213
+2025-07-23 14:09:16.485  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-pool: default
+2025-07-23 14:09:16.485  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-apigw-id: OKfHiEafvHcECXw=
+2025-07-23 14:09:16.498  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-count: 325695
+2025-07-23 14:09:16.522  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-cache: Miss from cloudfront
+2025-07-23 14:09:16.533  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  via: 1.1 819eb5d1ade73da58bdea62726593c44.cloudfront.net (CloudFront)
+2025-07-23 14:09:16.562  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-pop: LHR5-P5
+2025-07-23 14:09:16.562  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-id: MEfYRzHGjqu_pufSXQwP5ofSn062q__pUnHDOfV24ItVa2FLD2fE_g==
+2025-07-23 14:09:16.562  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cf-cache-status: DYNAMIC
+2025-07-23 14:09:16.605  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  set-cookie: __cf_bm=v6aaJ1WLTDDj4S_7RXWgaiDs1ebJUl_XTyR1zEP7Czs-1753276156-1.0.1.1-wxQBKKeM2E.VBu3TRMlG5KWQxgAcXNk3CISJOZVbskxTsjLPdkcXr0EfuLCfqMpG.RBUXPZcTNhtuneL80aj.OC0lMOARN8wzyn1z5ilrLM; path=/; expires=Wed, 23-Jul-25 13:39:16 GMT; domain=.igdb.com; HttpOnly; Secure; SameSite=None
+2025-07-23 14:09:16.605  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  strict-transport-security: max-age=31536000; includeSubDomains; preload
+2025-07-23 14:09:16.605  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-content-type-options: nosniff
+2025-07-23 14:09:16.607  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  server: cloudflare
+2025-07-23 14:09:16.607  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cf-ray: 963b694aafb794e7-LHR
+2025-07-23 14:09:16.607  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  alt-svc: h3=":443"; ma=86400
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  [
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 1
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 2
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 3
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:16.724  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 4
+2025-07-23 14:09:16.725  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:16.725  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:16.739  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 5
+2025-07-23 14:09:16.749  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:16.749  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:16.749  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 6
+2025-07-23 14:09:16.749  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:16.749  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:16.749  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 7
+2025-07-23 14:09:16.749  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:16.749  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:16.749  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 8
+2025-07-23 14:09:16.750  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:16.774  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:16.774  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 9
+2025-07-23 14:09:16.774  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:16.774  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:16.774  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 10
+2025-07-23 14:09:16.774  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    }
+2025-07-23 14:09:16.775  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  ]
+2025-07-23 14:09:16.776  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- END HTTP (213-byte body)
+2025-07-23 14:09:16.842  2062-2260  System.out              com.kiaranhurley.mediatracker        I  DEBUG: ✅ IGDB API query successful!
+2025-07-23 14:09:16.842  2062-2260  MediaTracker            com.kiaranhurley.mediatracker        D  ✅ IGDB API is working correctly!
+2025-07-23 14:09:16.901  2062-2262  API_TEST                com.kiaranhurley.mediatracker        D  Testing TMDB API...
+2025-07-23 14:09:17.013  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> GET https://api.themoviedb.org/3/search/movie?api_key=b95e021fc72736385b6e642b62d2ae2a&query=Inception&page=1
+2025-07-23 14:09:17.013  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> END GET
+2025-07-23 14:09:17.779  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- 200 https://api.themoviedb.org/3/search/movie?api_key=b95e021fc72736385b6e642b62d2ae2a&query=Inception&page=1 (765ms)
+2025-07-23 14:09:17.779  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-type: application/json;charset=utf-8
+2025-07-23 14:09:17.780  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  date: Wed, 23 Jul 2025 12:32:29 GMT
+2025-07-23 14:09:17.780  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  server: openresty
+2025-07-23 14:09:17.780  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cache-control: public, max-age=8075
+2025-07-23 14:09:17.825  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-memc: HIT
+2025-07-23 14:09:17.840  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-memc-key: abc5f7e3c94f2adef142bfdf147f1464a0088f004f2651e12574b4babc0304c9
+2025-07-23 14:09:17.847  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-memc-age: 18799
+2025-07-23 14:09:17.847  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-memc-expires: 8075
+2025-07-23 14:09:17.865  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-az: us-east-1c
+2025-07-23 14:09:17.866  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-task-id: 68a071cbc6a34138809e7ff3821b5741
+2025-07-23 14:09:17.866  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  etag: W/"0fbff5610eeb99557aa95f4cc798e97c"
+2025-07-23 14:09:17.868  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  vary: accept-encoding
+2025-07-23 14:09:17.869  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-cache: Hit from cloudfront
+2025-07-23 14:09:17.869  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  via: 1.1 0049c5577a998a3c21b741181b3609cc.cloudfront.net (CloudFront)
+2025-07-23 14:09:17.878  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-pop: LHR50-P2
+2025-07-23 14:09:17.883  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  alt-svc: h3=":443"; ma=86400
+2025-07-23 14:09:17.883  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-id: iqGQ4Do7o3WaqwDSd3uq061SYlcF3Jc3-qKYOaCkk9AfmrYwOPfkHw==
+2025-07-23 14:09:17.904  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  age: 2209
+2025-07-23 14:09:17.905  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  vary: Origin
+2025-07-23 14:09:17.907  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  {"page":1,"results":[{"adult":false,"backdrop_path":"/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg","genre_ids":[28,878,12],"id":27205,"original_language":"en","original_title":"Inception","overview":"Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: \"inception\", the implantation of another person's idea into a target's subconscious.","popularity":26.7075,"poster_path":"/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg","release_date":"2010-07-15","title":"Inception","video":false,"vote_average":8.369,"vote_count":37695},{"adult":false,"backdrop_path":"/JeGkRdNsOuMrgwBdtB0hp763MU.jpg","genre_ids":[18,53],"id":613092,"original_language":"es","original_title":"El crack cero","overview":"Madrid, Spain, 1975; shortly after the end of the Franco dictatorship. Six months after the mysterious death of his lover, a prestigious tailor, a married woman visits the office of the young Germán Areta, a former police officer turned private detective, to request his professional services.","popularity":0.3223,"poster_path":"/kzgPu2CMxBr4YZZxC1Off4cUfR9.jpg","release_date":"2019-10-04","title":"The Crack: Inception","video":false,"vote_average":6.7,"vote_count":38},{"adult":false,"backdrop_path":"/p8K8Z4yjaslJx5mTsIC5L6LJxQB.jpg","genre_ids":[16,28,53,878],"id":64956,"original_language":"en","original_title":"Inception: The Cobol Job","overview":"This \"Inception\" prequel unfolds courtesy of a beautiful Motion Comic, and explains how Cobb, Arthur and Nash were enlisted by Cobol Engineering.","popularity":1.0581,"poster_path":"/sNxqwtyHMNQwKWoFYDqcYTui5Ok.jpg","release_date":"2010-12-07","title":"Inception: The Cobol Job","video":false,"vote_average":7.247,"vote_count":306},{"adult":false,"backdrop_path":null,"genre_ids":[99,18],"id":1370380,"original_language":"hr","original_title":"Sindrom Halla, začetak hrvatskog profesionalnog filma – rođenog da umre","overview":"One hundred years after the invention of film, Croatian film icon Mr. Fulir, who serves as the author’s alter-ego, comes up with the Faustian idea to bring back his youth. With a group of famous actors, he enthusiastically attempts to remake lost Croatian films from the silent era.","popularity":0.047,"poster_path":null,"release_date":"2017-01-01","title":"Syndrome Halla, the Inception of Croatian Professional Film – Born to Die","video":false,"vote_average":0.0,"vote_count":0},{"adult":false,"backdrop_path":null,"genre_ids":[],"id":350632,"original_language":"en","original_title":"Nātyārambham","overview":"On certain Adavus: the basic steps in Bharatanatyam. The first part covers Tatta Adavu, Natta Adavu, Visharu Adavu , Tatti Metti Adavu and Teermanam Adavu.","popularity":0.0361,"poster_path":null,"release_date":"","title":"The Inception of Dramatic Representation","video":true,"vote_average":5.8,"vote_count":3},{"adult":false,"backdrop_path":"/x7ZzkFECLu9JUiKGzj52TWlnwir.jpg","genre_ids":[18],"id":1359046,"original_language":"mn","original_title":"Эхлэл","overview":"This film shows how ordinary people work to build the Erdenet factory, and how the finished product becomes the result of collective labor, and tells about the friendship of workers from Mongolia.","popularity":0.0264,"poster_path":null,"release_date":"1980-01-23","title":"Inception","video":false,"vote_average":0.0,"vote_count":0},{"adult":false,"backdrop_path":null,"genre_ids":[10402],"id":973484,"original_language":"en","original_title":"Inception: Music from the Motion Picture","overview":"The Special Features Blu-ray disc contains a lossless DTS-HD MA 5.1 surround mix of the Inception soundtrack.","popularity":0.2309,"poster_path":"/7uM4DyRVAcgagvhZoWrkrqMPbqV.jpg","release_date":"2010-12-07","title":"Inception: Music from the Motion Picture","video":true,"vote_average":6.0,"vote_count":2},{"adult":false,"backdrop_path":null,"genre_ids":[],"id":250845,"original_language":"en","original_title":"W
+2025-07-23 14:09:17.907  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  WA The Inception","overview":"The first World Wrestling Allstars pay per view, live from Sydney, Australia! A tournament titled \"7 Deadly Sins\", each round having a stipulation match, the winner will be crowned the first ever WWA Heavyweight Champion! Wrestlers such as Jeff Jarrett, Road Dogg, Jerry Lawler all compete in the tournament, with the WWA Commissioner, Bret Hart not too far away to make sure nothing gets to far out of hand!","popularity":0.1977,"poster_path":null,"release_date":"2001-10-26","title":"WWA The Inception","video":true,"vote_average":3.1,"vote_count":5},{"adult":false,"backdrop_path":null,"genre_ids":[35],"id":542438,"original_language":"en","original_title":"Bikini Inception","overview":"Two flunky Janitors in an Arctic Lab perform unauthorized experiments transporting them to a beach dream world in Malibu California w/50 beautiful young girls and a female Brazilian PhD Student wearing only a bra and panties. A '67 Muscle car races chases horses guns fights surfing, sumo wrestler, wolf monster, underwater scenes tons of gorgeous models. Sexy sci-fi fun.","popularity":0.3159,"poster_path":"/mNASlEOFX2c9upxaSbgeKFvIr1L.jpg","release_date":"2015-05-19","title":"Bikini Inception","video":false,"vote_average":4.0,"vote_count":2}],"total_pages":1,"total_results":9}
+2025-07-23 14:09:17.907  2062-2588  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- END HTTP (5321-byte body)
+2025-07-23 14:09:18.200  2062-2262  API_TEST                com.kiaranhurley.mediatracker        D  ✅ TMDB Success: Found 9 movies
+2025-07-23 14:09:18.200  2062-2262  API_TEST                com.kiaranhurley.mediatracker        D  First movie: Inception (2010-07-15)
+2025-07-23 14:09:18.201  2062-2262  API_TEST                com.kiaranhurley.mediatracker        D  Testing IGDB API...
+2025-07-23 14:09:18.202  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> POST https://id.twitch.tv/oauth2/token
+2025-07-23 14:09:18.202  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Type: application/x-www-form-urlencoded
+2025-07-23 14:09:18.202  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Length: 115
+2025-07-23 14:09:18.203  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  client_id=j9otfot2lil3s2og262w0z9soif80l&client_secret=sus6hkdw75qjqee4bgxrk56anqd6ih&grant_type=client_credentials
+2025-07-23 14:09:18.203  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> END POST (115-byte body)
+2025-07-23 14:09:18.657  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- 200 https://id.twitch.tv/oauth2/token (454ms)
+2025-07-23 14:09:18.657  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  date: Wed, 23 Jul 2025 13:09:19 GMT
+2025-07-23 14:09:18.657  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-type: application/json
+2025-07-23 14:09:18.658  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-length: 93
+2025-07-23 14:09:18.658  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  server: nginx
+2025-07-23 14:09:18.658  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  access-control-allow-origin: *
+2025-07-23 14:09:18.658  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-ctxlog-logid: 1-6880defe-26fd21992fa420052a0cc3e3
+2025-07-23 14:09:18.681  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  {"access_token":"m0sat7sqcthl6ai2srcpr5ptnn6cv6","expires_in":5586555,"token_type":"bearer"}
+2025-07-23 14:09:18.681  2062-2350  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- END HTTP (93-byte body)
+2025-07-23 14:09:18.687  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  ✅ Got IGDB access token: m0sat7sqct...
+2025-07-23 14:09:18.687  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  Testing search query: search "Minecraft";
+                                                                                                    fields name,summary,first_release_date,aggregated_rating,cover.url;
+                                                                                                    limit 5;
+2025-07-23 14:09:18.703  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> POST https://api.igdb.com/v4/games
+2025-07-23 14:09:18.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Type: text/plain
+2025-07-23 14:09:18.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Length: 102
+2025-07-23 14:09:18.711  2062-2085  HWUI                    com.kiaranhurley.mediatracker        I  Davey! duration=7064ms; Flags=1, FrameTimelineVsyncId=6187, IntendedVsync=28364505884, Vsync=29247839182, InputEventId=0, HandleInputStart=29256345000, AnimationStart=29256389600, PerformTraversalsStart=29258180800, DrawStart=35247567400, FrameDeadline=28381172550, FrameStartTime=29255557500, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=35294322000, SyncStart=35295604100, IssueDrawCommandsStart=35296336000, SwapBuffers=35392654100, FrameCompleted=35430596200, DequeueBufferDuration=71600, QueueBufferDuration=292100, GpuCompleted=35430349400, SwapBuffersCompleted=35430596200, DisplayPresentTime=0, CommandSubmissionCompleted=35392654100, 
+2025-07-23 14:09:18.732  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Client-ID: j9otfot2lil3s2og262w0z9soif80l
+2025-07-23 14:09:18.733  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Authorization: Bearer m0sat7sqcthl6ai2srcpr5ptnn6cv6
+2025-07-23 14:09:18.735  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  "search \"Minecraft\";\nfields name,summary,first_release_date,aggregated_rating,cover.url;\nlimit 5;"
+2025-07-23 14:09:18.735  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> END POST (102-byte body)
+2025-07-23 14:09:18.760  2062-2062  Choreographer           com.kiaranhurley.mediatracker        I  Skipped 344 frames!  The application may be doing too much work on its main thread.
+2025-07-23 14:09:18.870  2062-2101  HWUI                    com.kiaranhurley.mediatracker        I  Davey! duration=5803ms; Flags=0, FrameTimelineVsyncId=7103, IntendedVsync=29797839160, Vsync=35531172264, InputEventId=0, HandleInputStart=35537423600, AnimationStart=35537613600, PerformTraversalsStart=35571167800, DrawStart=35571522300, FrameDeadline=35447838934, FrameStartTime=35535911200, FrameInterval=16666666, WorkloadTarget=16666666, SyncQueued=35579502700, SyncStart=35583972800, IssueDrawCommandsStart=35584059300, SwapBuffers=35586395900, FrameCompleted=35605940400, DequeueBufferDuration=25600, QueueBufferDuration=3211000, GpuCompleted=35605726500, SwapBuffersCompleted=35605940400, DisplayPresentTime=0, CommandSubmissionCompleted=35586395900, 
+2025-07-23 14:09:18.955  2062-2062  InsetsController        com.kiaranhurley.mediatracker        D  hide(ime(), fromIme=false)
+2025-07-23 14:09:18.963  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  com.kiaranhurley.mediatracker:9c58af21: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+2025-07-23 14:09:18.980  2062-2688  ProfileInstaller        com.kiaranhurley.mediatracker        D  Installing profile for com.kiaranhurley.mediatracker
+2025-07-23 14:09:19.886  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- 200 https://api.igdb.com/v4/games (1150ms)
+2025-07-23 14:09:19.886  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  date: Wed, 23 Jul 2025 13:09:19 GMT
+2025-07-23 14:09:19.887  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-type: application/json
+2025-07-23 14:09:19.887  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-remapped-date: Wed, 23 Jul 2025 13:09:19 GMT
+2025-07-23 14:09:19.887  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-requestid: 6497f9b8-a819-43d1-8591-53da8c30ea8d
+2025-07-23 14:09:19.887  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-remapped-content-length: 213
+2025-07-23 14:09:19.887  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-pool: default
+2025-07-23 14:09:19.887  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-apigw-id: OKfH9G3FvHcEXNA=
+2025-07-23 14:09:19.888  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-count: 325695
+2025-07-23 14:09:19.888  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-cache: Miss from cloudfront
+2025-07-23 14:09:19.888  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  via: 1.1 819eb5d1ade73da58bdea62726593c44.cloudfront.net (CloudFront)
+2025-07-23 14:09:19.889  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-pop: LHR5-P5
+2025-07-23 14:09:19.889  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-id: whWoY_ghflE3kkK-PjTQyX7W_-ZNfoLV0Nrna_su9YQ0MhQdGHUxbw==
+2025-07-23 14:09:19.893  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cf-cache-status: DYNAMIC
+2025-07-23 14:09:19.893  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  set-cookie: __cf_bm=7Xn..Wynm5WKDqubWraoZaPTKRHKSLKmLkQ2DSSk71M-1753276159-1.0.1.1-rQJRZdN9UJr9r463kp5UvbfsX4vRPVABebA_.Xeil0Hjx4v4_0qlNd43DtbrMoyXP4t2CwKvSIFiGQy4FlJnsWu9MTfMB2tMg_YDDWhtVpA; path=/; expires=Wed, 23-Jul-25 13:39:19 GMT; domain=.igdb.com; HttpOnly; Secure; SameSite=None
+2025-07-23 14:09:19.893  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  strict-transport-security: max-age=31536000; includeSubDomains; preload
+2025-07-23 14:09:19.894  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-content-type-options: nosniff
+2025-07-23 14:09:19.894  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  server: cloudflare
+2025-07-23 14:09:19.894  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cf-ray: 963b695bbf1594e7-LHR
+2025-07-23 14:09:19.894  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  alt-svc: h3=":443"; ma=86400
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  [
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 1
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 2
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 3
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 4
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 5
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 6
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 7
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 8
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 9
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 10
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    }
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  ]
+2025-07-23 14:09:19.895  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- END HTTP (213-byte body)
+2025-07-23 14:09:19.945  2062-2073  ey.mediatracker         com.kiaranhurley.mediatracker        I  Background concurrent mark compact GC freed 5121KB AllocSpace bytes, 0(0B) LOS objects, 49% free, 5663KB/11MB, paused 11.910ms,5.915ms total 611.743ms
+2025-07-23 14:09:20.014  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  ✅ IGDB Search Success: Found 10 games
+2025-07-23 14:09:20.016  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  First game: ID: 1
+2025-07-23 14:09:20.016  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  Rating: null
+2025-07-23 14:09:20.016  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  Cover URL: null
+2025-07-23 14:09:20.016  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  Testing popular games query: fields name,summary,first_release_date,aggregated_rating,cover.url;
+                                                                                                    where aggregated_rating != null;
+                                                                                                    sort aggregated_rating desc;
+                                                                                                    limit 5;
+2025-07-23 14:09:20.043  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> POST https://api.igdb.com/v4/games
+2025-07-23 14:09:20.043  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Type: text/plain
+2025-07-23 14:09:20.047  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Length: 148
+2025-07-23 14:09:20.048  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Client-ID: j9otfot2lil3s2og262w0z9soif80l
+2025-07-23 14:09:20.048  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Authorization: Bearer m0sat7sqcthl6ai2srcpr5ptnn6cv6
+2025-07-23 14:09:20.048  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  "fields name,summary,first_release_date,aggregated_rating,cover.url;\nwhere aggregated_rating !\u003d null;\nsort aggregated_rating desc;\nlimit 5;"
+2025-07-23 14:09:20.048  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> END POST (148-byte body)
+2025-07-23 14:09:20.524  2062-2072  ey.mediatracker         com.kiaranhurley.mediatracker        I  Compiler allocated 5042KB to compile void android.view.ViewRootImpl.performTraversals()
+2025-07-23 14:09:20.601  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- 200 https://api.igdb.com/v4/games (552ms)
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  date: Wed, 23 Jul 2025 13:09:21 GMT
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-type: application/json
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-remapped-date: Wed, 23 Jul 2025 13:09:20 GMT
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-requestid: f80884f0-a57e-4994-82d4-fbdcd4440e08
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-remapped-content-length: 213
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-pool: default
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-apigw-id: OKfINHsPvHcELgw=
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-count: 325695
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-cache: Miss from cloudfront
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  via: 1.1 819eb5d1ade73da58bdea62726593c44.cloudfront.net (CloudFront)
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-pop: LHR5-P5
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-id: qG9GcpHF9qvO2LMC6nQigAfoWSB5HgDDor9cugv5oT38YvLxL2xiLg==
+2025-07-23 14:09:20.626  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cf-cache-status: DYNAMIC
+2025-07-23 14:09:20.627  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  set-cookie: __cf_bm=UVubN1YS8ItNy3pjypOzLkRypQ358Y1HLWz2E3k9n.Q-1753276161-1.0.1.1-1KnbtR87iWA64iZleVdOQEBdls5dueiUBua9XmGBMmCbdBMqDSqe43e1_QLqChSIKeHICkb_mVIFNLNlB.RtTF_3CMJLWyB.sORxKf38nVw; path=/; expires=Wed, 23-Jul-25 13:39:21 GMT; domain=.igdb.com; HttpOnly; Secure; SameSite=None
+2025-07-23 14:09:20.627  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  strict-transport-security: max-age=31536000; includeSubDomains; preload
+2025-07-23 14:09:20.627  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-content-type-options: nosniff
+2025-07-23 14:09:20.627  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  server: cloudflare
+2025-07-23 14:09:20.627  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cf-ray: 963b6963be1094e7-LHR
+2025-07-23 14:09:20.627  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  alt-svc: h3=":443"; ma=86400
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  [
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 1
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 2
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 3
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 4
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 5
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 6
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 7
+2025-07-23 14:09:20.705  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 8
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 9
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 10
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    }
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  ]
+2025-07-23 14:09:20.706  2062-2512  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- END HTTP (213-byte body)
+2025-07-23 14:09:20.712  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  ✅ IGDB Popular Success: Found 10 games
+2025-07-23 14:09:20.713  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  Game: ID: 1 - Rating: null
+2025-07-23 14:09:20.713  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  Game: ID: 2 - Rating: null
+2025-07-23 14:09:20.713  2062-2578  API_TEST                com.kiaranhurley.mediatracker        D  Game: ID: 3 - Rating: null
+2025-07-23 14:09:32.823  2062-2062  InsetsController        com.kiaranhurley.mediatracker        D  show(ime(), fromIme=false)
+2025-07-23 14:09:32.827  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  com.kiaranhurley.mediatracker:545342b5: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+2025-07-23 14:09:32.833  2062-2062  InsetsController        com.kiaranhurley.mediatracker        D  Setting requestedVisibleTypes to -1 (was -9)
+2025-07-23 14:09:32.923  2062-2062  AssistStructure         com.kiaranhurley.mediatracker        I  Flattened final assist data: 704 bytes, containing 1 windows, 4 views
+2025-07-23 14:09:32.961  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  com.kiaranhurley.mediatracker:bde3303e: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+2025-07-23 14:09:32.961  2062-2062  InsetsController        com.kiaranhurley.mediatracker        D  show(ime(), fromIme=false)
+2025-07-23 14:09:32.962  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  com.kiaranhurley.mediatracker:bde3303e: onCancelled at PHASE_CLIENT_REPORT_REQUESTED_VISIBLE_TYPES
+2025-07-23 14:09:33.020  2062-2062  RemoteInpu...ectionImpl com.kiaranhurley.mediatracker        W  requestCursorUpdates on inactive InputConnection
+2025-07-23 14:09:33.334  2062-2062  Autofill Status         com.kiaranhurley.mediatracker        D  Autofill popup isn't shown because autofill is not available.
+                                                                                                    
+                                                                                                    Did you set up autofill?
+                                                                                                    1. Go to Settings > System > Languages&input > Advanced > Autofill Service
+                                                                                                    2. Pick a service
+                                                                                                    
+                                                                                                    Did you add an account?
+                                                                                                    1. Go to Settings > System > Languages&input > Advanced
+                                                                                                    2. Click on the settings icon next to the Autofill Service
+                                                                                                    3. Add your account
+2025-07-23 14:09:34.353  2062-2062  InteractionJankMonitor  com.kiaranhurley.mediatracker        W  Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.kiaranhurley.mediatracker
+2025-07-23 14:09:34.709  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  com.kiaranhurley.mediatracker:545342b5: onShown
+2025-07-23 14:09:38.048  2062-2062  InsetsController        com.kiaranhurley.mediatracker        D  show(ime(), fromIme=false)
+2025-07-23 14:09:38.049  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  com.kiaranhurley.mediatracker:2373a676: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT_BY_INSETS_API fromUser false
+2025-07-23 14:09:38.049  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  com.kiaranhurley.mediatracker:2373a676: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+2025-07-23 14:09:38.063  2062-2062  AssistStructure         com.kiaranhurley.mediatracker        I  Flattened final assist data: 716 bytes, containing 1 windows, 4 views
+2025-07-23 14:09:38.086  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  com.kiaranhurley.mediatracker:d94467fd: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+2025-07-23 14:09:38.086  2062-2062  InsetsController        com.kiaranhurley.mediatracker        D  show(ime(), fromIme=false)
+2025-07-23 14:09:38.086  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  com.kiaranhurley.mediatracker:d94467fd: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+2025-07-23 14:09:38.112  2062-2062  Autofill Status         com.kiaranhurley.mediatracker        D  Autofill popup isn't shown because autofill is not available.
+                                                                                                    
+                                                                                                    Did you set up autofill?
+                                                                                                    1. Go to Settings > System > Languages&input > Advanced > Autofill Service
+                                                                                                    2. Pick a service
+                                                                                                    
+                                                                                                    Did you add an account?
+                                                                                                    1. Go to Settings > System > Languages&input > Advanced
+                                                                                                    2. Click on the settings icon next to the Autofill Service
+                                                                                                    3. Add your account
+2025-07-23 14:09:41.741  2062-2062  InsetsController        com.kiaranhurley.mediatracker        D  hide(ime(), fromIme=false)
+2025-07-23 14:09:41.742  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  com.kiaranhurley.mediatracker:e7063748: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_BY_INSETS_API fromUser false
+2025-07-23 14:09:41.743  2062-2062  WindowOnBackDispatcher  com.kiaranhurley.mediatracker        W  sendCancelIfRunning: isInProgress=false callback=android.view.ImeBackAnimationController@1c6a4b9
+2025-07-23 14:09:41.743  2062-2062  InsetsController        com.kiaranhurley.mediatracker        D  Setting requestedVisibleTypes to -9 (was -1)
+2025-07-23 14:09:42.243  2062-2062  ImeTracker              com.kiaranhurley.mediatracker        I  system_server:7c4255b2: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+2025-07-23 14:09:45.525  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel initialized
+2025-07-23 14:09:45.525  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - Loading games...
+2025-07-23 14:09:45.526  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - Attempting to get popular games from API...
+2025-07-23 14:09:45.526  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Starting getPopularGamesFromApi
+2025-07-23 14:09:45.526  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Requesting new IGDB access token...
+2025-07-23 14:09:45.526  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Client ID: j9otfot2li...
+2025-07-23 14:09:45.527  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Client Secret: sus6hkdw75...
+2025-07-23 14:09:45.534  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> POST https://id.twitch.tv/oauth2/token
+2025-07-23 14:09:45.534  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Type: application/x-www-form-urlencoded
+2025-07-23 14:09:45.534  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Length: 115
+2025-07-23 14:09:45.535  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  client_id=j9otfot2lil3s2og262w0z9soif80l&client_secret=sus6hkdw75qjqee4bgxrk56anqd6ih&grant_type=client_credentials
+2025-07-23 14:09:45.535  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> END POST (115-byte body)
+2025-07-23 14:09:45.612  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - Loading games...
+2025-07-23 14:09:45.612  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - Attempting to get popular games from API...
+2025-07-23 14:09:45.612  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Starting getPopularGamesFromApi
+2025-07-23 14:09:45.612  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Requesting new IGDB access token...
+2025-07-23 14:09:45.612  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Client ID: j9otfot2li...
+2025-07-23 14:09:45.612  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Client Secret: sus6hkdw75...
+2025-07-23 14:09:45.614  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> POST https://id.twitch.tv/oauth2/token
+2025-07-23 14:09:45.614  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Type: application/x-www-form-urlencoded
+2025-07-23 14:09:45.614  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Length: 115
+2025-07-23 14:09:45.614  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  client_id=j9otfot2lil3s2og262w0z9soif80l&client_secret=sus6hkdw75qjqee4bgxrk56anqd6ih&grant_type=client_credentials
+2025-07-23 14:09:45.614  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> END POST (115-byte body)
+2025-07-23 14:09:46.618  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- 200 https://id.twitch.tv/oauth2/token (1082ms)
+2025-07-23 14:09:46.618  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  date: Wed, 23 Jul 2025 13:09:47 GMT
+2025-07-23 14:09:46.618  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-type: application/json
+2025-07-23 14:09:46.618  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-length: 93
+2025-07-23 14:09:46.618  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  server: nginx
+2025-07-23 14:09:46.618  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  access-control-allow-origin: *
+2025-07-23 14:09:46.618  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-ctxlog-logid: 1-6880df1a-31977e9e6264453a52481ebb
+2025-07-23 14:09:46.619  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  {"access_token":"rr58mnpenxb7x3kdfuboozvez7r8hb","expires_in":4808117,"token_type":"bearer"}
+2025-07-23 14:09:46.619  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- END HTTP (93-byte body)
+2025-07-23 14:09:46.621  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Token request response code: 200
+2025-07-23 14:09:46.621  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Token request response message: 
+2025-07-23 14:09:46.621  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Successfully got IGDB token: rr58mnpenx...
+2025-07-23 14:09:46.621  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Token expires in: 4808117 seconds
+2025-07-23 14:09:46.622  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Got access token: rr58mnpenx...
+2025-07-23 14:09:46.622  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - IGDB Popular Query: fields name,summary,first_release_date,aggregated_rating,cover.*,platforms.*,involved_companies.company.*;
+2025-07-23 14:09:46.622  2062-2062  System.out              com.kiaranhurley.mediatracker        I  where first_release_date != null;
+2025-07-23 14:09:46.622  2062-2062  System.out              com.kiaranhurley.mediatracker        I  sort first_release_date desc;
+2025-07-23 14:09:46.622  2062-2062  System.out              com.kiaranhurley.mediatracker        I  limit 50;
+2025-07-23 14:09:46.622  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Using Client ID: j9otfot2li...
+2025-07-23 14:09:46.622  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Using Auth: Bearer rr58mnpenx...
+2025-07-23 14:09:46.623  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- 200 https://id.twitch.tv/oauth2/token (1008ms)
+2025-07-23 14:09:46.623  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  date: Wed, 23 Jul 2025 13:09:47 GMT
+2025-07-23 14:09:46.623  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-type: application/json
+2025-07-23 14:09:46.624  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-length: 93
+2025-07-23 14:09:46.624  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  server: nginx
+2025-07-23 14:09:46.624  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  access-control-allow-origin: *
+2025-07-23 14:09:46.625  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-ctxlog-logid: 1-6880df1a-2fce90936389285d537074b3
+2025-07-23 14:09:46.625  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  {"access_token":"n5coc3nqizpu5ii4yxebbo421aiw6a","expires_in":5592500,"token_type":"bearer"}
+2025-07-23 14:09:46.625  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- END HTTP (93-byte body)
+2025-07-23 14:09:46.626  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> POST https://api.igdb.com/v4/games
+2025-07-23 14:09:46.626  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Type: text/plain
+2025-07-23 14:09:46.626  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Length: 190
+2025-07-23 14:09:46.627  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Client-ID: j9otfot2lil3s2og262w0z9soif80l
+2025-07-23 14:09:46.627  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Authorization: Bearer rr58mnpenxb7x3kdfuboozvez7r8hb
+2025-07-23 14:09:46.627  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  "fields name,summary,first_release_date,aggregated_rating,cover.*,platforms.*,involved_companies.company.*;\nwhere first_release_date !\u003d null;\nsort first_release_date desc;\nlimit 50;"
+2025-07-23 14:09:46.627  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> END POST (190-byte body)
+2025-07-23 14:09:46.630  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Token request response code: 200
+2025-07-23 14:09:46.631  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Token request response message: 
+2025-07-23 14:09:46.631  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Successfully got IGDB token: n5coc3nqiz...
+2025-07-23 14:09:46.631  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: IgdbTokenProvider - Token expires in: 5592500 seconds
+2025-07-23 14:09:46.631  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Got access token: n5coc3nqiz...
+2025-07-23 14:09:46.631  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - IGDB Popular Query: fields name,summary,first_release_date,aggregated_rating,cover.*,platforms.*,involved_companies.company.*;
+2025-07-23 14:09:46.631  2062-2062  System.out              com.kiaranhurley.mediatracker        I  where first_release_date != null;
+2025-07-23 14:09:46.631  2062-2062  System.out              com.kiaranhurley.mediatracker        I  sort first_release_date desc;
+2025-07-23 14:09:46.631  2062-2062  System.out              com.kiaranhurley.mediatracker        I  limit 50;
+2025-07-23 14:09:46.631  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Using Client ID: j9otfot2li...
+2025-07-23 14:09:46.631  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Using Auth: Bearer n5coc3nqiz...
+2025-07-23 14:09:46.634  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> POST https://api.igdb.com/v4/games
+2025-07-23 14:09:46.634  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Type: text/plain
+2025-07-23 14:09:46.634  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Content-Length: 190
+2025-07-23 14:09:46.634  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Client-ID: j9otfot2lil3s2og262w0z9soif80l
+2025-07-23 14:09:46.634  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  Authorization: Bearer n5coc3nqizpu5ii4yxebbo421aiw6a
+2025-07-23 14:09:46.634  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  "fields name,summary,first_release_date,aggregated_rating,cover.*,platforms.*,involved_companies.company.*;\nwhere first_release_date !\u003d null;\nsort first_release_date desc;\nlimit 50;"
+2025-07-23 14:09:46.634  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  --> END POST (190-byte body)
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- 200 https://api.igdb.com/v4/games (639ms)
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  date: Wed, 23 Jul 2025 13:09:47 GMT
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-type: application/json
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-remapped-date: Wed, 23 Jul 2025 13:09:47 GMT
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-requestid: 3d265d57-b52e-4cda-9bfe-13feb58125db
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-remapped-content-length: 213
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-pool: default
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-apigw-id: OKfMYGW4vHcEivw=
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-count: 325695
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-cache: Miss from cloudfront
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  via: 1.1 4284fd77f755f22ec793b21e3fc7e1a0.cloudfront.net (CloudFront)
+2025-07-23 14:09:47.274  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-pop: LHR5-P5
+2025-07-23 14:09:47.275  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-id: BBNaHkCJulH-vwfl2NqvE5HADmnI2EqLQgE6XhBoegTlOE-JpbRtoQ==
+2025-07-23 14:09:47.275  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cf-cache-status: DYNAMIC
+2025-07-23 14:09:47.275  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  set-cookie: __cf_bm=btF1ojS8RrD__k06QiyauDf9XV4DtBr0ZQeDOzuuA8s-1753276187-1.0.1.1-ea1i9qanVghUN8La.i4bPuiCfMsdqIYwq1uU84ofsmCx3ia7PtBCiiKE_vFKChEkrTOe7BcleQ3IdddBu39ly98nnnow3GkgowvnWL3Wnh8; path=/; expires=Wed, 23-Jul-25 13:39:47 GMT; domain=.igdb.com; HttpOnly; Secure; SameSite=None
+2025-07-23 14:09:47.275  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  strict-transport-security: max-age=31536000; includeSubDomains; preload
+2025-07-23 14:09:47.275  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-content-type-options: nosniff
+2025-07-23 14:09:47.275  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  server: cloudflare
+2025-07-23 14:09:47.275  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cf-ray: 963b6a0aa8c5ef2b-LHR
+2025-07-23 14:09:47.275  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  alt-svc: h3=":443"; ma=86400
+2025-07-23 14:09:47.276  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  [
+2025-07-23 14:09:47.276  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.276  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 1
+2025-07-23 14:09:47.276  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.276  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.276  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 2
+2025-07-23 14:09:47.276  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.276  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.276  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 3
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 4
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 5
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 6
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 7
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.277  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.278  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 8
+2025-07-23 14:09:47.278  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.278  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.278  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 9
+2025-07-23 14:09:47.278  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.278  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.278  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 10
+2025-07-23 14:09:47.278  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    }
+2025-07-23 14:09:47.278  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  ]
+2025-07-23 14:09:47.278  2062-3805  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- END HTTP (213-byte body)
+2025-07-23 14:09:47.280  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - API Response Code: 200
+2025-07-23 14:09:47.280  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - API Response Message: 
+2025-07-23 14:09:47.280  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - IGDB Popular API returned 10 games
+2025-07-23 14:09:47.281  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Processing game: null, Cover URL: null
+2025-07-23 14:09:47.284  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - IGDB Exception: Parameter specified as non-null is null: method com.kiaranhurley.mediatracker.database.entities.Game.<init>, parameter name
+2025-07-23 14:09:47.285  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Stack trace:
+2025-07-23 14:09:47.285  2062-2062  System.err              com.kiaranhurley.mediatracker        W  java.lang.NullPointerException: Parameter specified as non-null is null: method com.kiaranhurley.mediatracker.database.entities.Game.<init>, parameter name
+2025-07-23 14:09:47.285  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.kiaranhurley.mediatracker.database.entities.Game.<init>(Unknown Source:2)
+2025-07-23 14:09:47.285  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.kiaranhurley.mediatracker.database.entities.Game.<init>(Game.kt:8)
+2025-07-23 14:09:47.285  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.kiaranhurley.mediatracker.repository.GameRepository.getPopularGamesFromApi(GameRepository.kt:238)
+2025-07-23 14:09:47.285  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.kiaranhurley.mediatracker.repository.GameRepository$getPopularGamesFromApi$1.invokeSuspend(Unknown Source:14)
+2025-07-23 14:09:47.285  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+2025-07-23 14:09:47.285  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:104)
+2025-07-23 14:09:47.286  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at android.os.Handler.handleCallback(Handler.java:995)
+2025-07-23 14:09:47.286  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at android.os.Handler.dispatchMessage(Handler.java:103)
+2025-07-23 14:09:47.286  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at android.os.Looper.loopOnce(Looper.java:248)
+2025-07-23 14:09:47.286  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at android.os.Looper.loop(Looper.java:338)
+2025-07-23 14:09:47.286  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at android.app.ActivityThread.main(ActivityThread.java:9067)
+2025-07-23 14:09:47.286  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at java.lang.reflect.Method.invoke(Native Method)
+2025-07-23 14:09:47.286  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:593)
+2025-07-23 14:09:47.286  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:932)
+2025-07-23 14:09:47.290  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - API returned 0 games
+2025-07-23 14:09:47.290  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - No games from API, trying local data...
+2025-07-23 14:09:47.298  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - Local database has 0 games
+2025-07-23 14:09:47.298  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - Setting success state with 0 games
+2025-07-23 14:09:47.310  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- 200 https://api.igdb.com/v4/games (683ms)
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  date: Wed, 23 Jul 2025 13:09:47 GMT
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  content-type: application/json
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-remapped-date: Wed, 23 Jul 2025 13:09:47 GMT
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-requestid: d94c549f-85ef-44b7-9437-21ecff4cad64
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amzn-remapped-content-length: 213
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-pool: default
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-apigw-id: OKfMYEA8PHcEW9g=
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-count: 325695
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-cache: Miss from cloudfront
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  via: 1.1 85eefc9957c2b8665ba3317e740020e0.cloudfront.net (CloudFront)
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-pop: LHR5-P5
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-amz-cf-id: Df8ggenvqcIvMAUi08nopBYQRCfnJU9CsJ9e14cMpOK-GidcyaL7YA==
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cf-cache-status: DYNAMIC
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  set-cookie: __cf_bm=deSaN4ugrzobmgZLZYgRaK6TS8sR6Tmd1oRLHj9Lobo-1753276187-1.0.1.1-A.N.5v33FsrTugViP8CBRoiC4RMhMRkn5tSDOd7oypRYTluSrIw2rXqkenKN9fabBBVeGfa.fuI_aYs24jSPxomBtNwZnSR8VO8MMJ4lFGI; path=/; expires=Wed, 23-Jul-25 13:39:47 GMT; domain=.igdb.com; HttpOnly; Secure; SameSite=None
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  strict-transport-security: max-age=31536000; includeSubDomains; preload
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  x-content-type-options: nosniff
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  server: cloudflare
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  cf-ray: 963b6a0a98a7ef2b-LHR
+2025-07-23 14:09:47.311  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  alt-svc: h3=":443"; ma=86400
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  [
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 1
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 2
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 3
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 4
+2025-07-23 14:09:47.312  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.313  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.313  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 5
+2025-07-23 14:09:47.313  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.313  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.313  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 6
+2025-07-23 14:09:47.313  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.313  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.313  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 7
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 8
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 9
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    },
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    {
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I      "id": 10
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I    }
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  ]
+2025-07-23 14:09:47.314  2062-3801  okhttp.OkHttpClient     com.kiaranhurley.mediatracker        I  <-- END HTTP (213-byte body)
+2025-07-23 14:09:47.329  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - API Response Code: 200
+2025-07-23 14:09:47.329  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - API Response Message: 
+2025-07-23 14:09:47.329  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - IGDB Popular API returned 10 games
+2025-07-23 14:09:47.329  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Processing game: null, Cover URL: null
+2025-07-23 14:09:47.329  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - IGDB Exception: Parameter specified as non-null is null: method com.kiaranhurley.mediatracker.database.entities.Game.<init>, parameter name
+2025-07-23 14:09:47.329  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameRepository - Stack trace:
+2025-07-23 14:09:47.329  2062-2062  System.err              com.kiaranhurley.mediatracker        W  java.lang.NullPointerException: Parameter specified as non-null is null: method com.kiaranhurley.mediatracker.database.entities.Game.<init>, parameter name
+2025-07-23 14:09:47.330  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.kiaranhurley.mediatracker.database.entities.Game.<init>(Unknown Source:2)
+2025-07-23 14:09:47.330  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.kiaranhurley.mediatracker.database.entities.Game.<init>(Game.kt:8)
+2025-07-23 14:09:47.330  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.kiaranhurley.mediatracker.repository.GameRepository.getPopularGamesFromApi(GameRepository.kt:238)
+2025-07-23 14:09:47.330  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.kiaranhurley.mediatracker.repository.GameRepository$getPopularGamesFromApi$1.invokeSuspend(Unknown Source:14)
+2025-07-23 14:09:47.330  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+2025-07-23 14:09:47.330  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:104)
+2025-07-23 14:09:47.330  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at android.os.Handler.handleCallback(Handler.java:995)
+2025-07-23 14:09:47.330  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at android.os.Handler.dispatchMessage(Handler.java:103)
+2025-07-23 14:09:47.330  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at android.os.Looper.loopOnce(Looper.java:248)
+2025-07-23 14:09:47.330  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at android.os.Looper.loop(Looper.java:338)
+2025-07-23 14:09:47.331  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at android.app.ActivityThread.main(ActivityThread.java:9067)
+2025-07-23 14:09:47.331  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at java.lang.reflect.Method.invoke(Native Method)
+2025-07-23 14:09:47.331  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:593)
+2025-07-23 14:09:47.331  2062-2062  System.err              com.kiaranhurley.mediatracker        W  	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:932)
+2025-07-23 14:09:47.335  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - API returned 0 games
+2025-07-23 14:09:47.335  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - No games from API, trying local data...
+2025-07-23 14:09:47.339  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - Local database has 0 games
+2025-07-23 14:09:47.340  2062-2062  System.out              com.kiaranhurley.mediatracker        I  DEBUG: GameCatalogViewModel - Setting success state with 0 games

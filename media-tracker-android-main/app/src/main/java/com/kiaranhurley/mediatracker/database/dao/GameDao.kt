@@ -29,4 +29,7 @@ interface GameDao {
 
     @Query("SELECT * FROM games ORDER BY createdAt DESC LIMIT :limit")
     suspend fun getRecentGames(limit: Int): List<Game>
+    
+    @Query("DELETE FROM games")
+    suspend fun deleteAllGames()
 }
