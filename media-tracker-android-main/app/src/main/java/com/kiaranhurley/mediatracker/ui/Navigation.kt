@@ -30,6 +30,7 @@ sealed class Screen(val route: String, val title: String, val icon: ImageVector)
     object Reviews : Screen("reviews", "Reviews", Icons.Default.RateReview)
     object Ratings : Screen("ratings", "Ratings", Icons.Default.Star)
     object Settings : Screen("settings", "Settings", Icons.Default.Settings)
+    object Auth : Screen("auth", "Authentication", Icons.Default.Lock)
     
     // Detail screens with parameters
     object FilmDetail {

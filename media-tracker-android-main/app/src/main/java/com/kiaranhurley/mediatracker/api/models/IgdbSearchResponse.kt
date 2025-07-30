@@ -8,7 +8,7 @@ typealias IgdbSearchResponse = List<IgdbSearchGame>
 // Simplified game data for search results
 data class IgdbSearchGame(
     val id: Int,
-    val name: String,
+    val name: String?, // Some games might have null names
     val summary: String?,
     @SerializedName("first_release_date")
     val firstReleaseDate: Long?, // Unix timestamp

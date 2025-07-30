@@ -41,17 +41,12 @@ class AuthViewModel @Inject constructor(
         _authState.value = AuthState.Loading
         viewModelScope.launch {
             val usernameTaken = userRepository.isUsernameTaken(user.username)
-            val emailRegistered = userRepository.isEmailRegistered(user.email)
             if (usernameTaken) {
                 _authState.value = AuthState.Error("Username already taken")
                 return@launch
             }
-            if (emailRegistered) {
-                _authState.value = AuthState.Error("Email already registered")
-                return@launch
-            }
-            val userId = userRepository.insertUser(user)
-            val newUser = userRepository.getUserById(userId.toInt())
+            userRepository.insertUser(user)
+            val newUser = userRepository.getUserByUsername(user.username)
             if (newUser != null) {
                 _authState.value = AuthState.Success(newUser)
             } else {

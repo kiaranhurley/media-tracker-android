@@ -87,14 +87,14 @@ fun RatingsScreen(
                     RatingsList(
                         ratings = currentState.ratings,
                         onDeleteRating = { rating ->
-                            viewModel.deleteRating(rating.rating.id)
+                            viewModel.deleteRating(rating.rating.ratingId)
                         },
                         onEditRating = { rating ->
                             // Navigate to edit screen for the specific rating
                             // For now, we'll just show a toast or a simple dialog
                             // In a real app, you'd navigate to EditRatingScreen(rating)
                             // This is a placeholder for now.
-                            // viewModel.editRating(rating) // Assuming editRating is in ProfileViewModel
+                            println("Editing rating: ${rating.rating.ratingId}")
                         }
                     )
                 }

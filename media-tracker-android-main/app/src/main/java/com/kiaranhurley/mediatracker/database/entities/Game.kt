@@ -11,7 +11,7 @@ data class Game(
     val igdbId: Int,
     val name: String,
     val summary: String?,
-    val firstReleaseDate: Long?,
+    val firstReleaseDate: Date?,
     val aggregatedRating: Float?,
     val aggregatedRatingCount: Int?,
     val coverId: Int?,

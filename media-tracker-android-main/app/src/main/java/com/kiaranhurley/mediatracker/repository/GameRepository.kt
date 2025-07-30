@@ -173,7 +173,9 @@ class GameRepository @Inject constructor(
                             igdbId = game.id,
                             name = game.name,
                             summary = game.summary,
-                            firstReleaseDate = game.firstReleaseDate,
+                            firstReleaseDate = game.firstReleaseDate?.let { timestamp ->
+                                java.sql.Date(timestamp * 1000)
+                            },
                             aggregatedRating = game.aggregatedRating,
                             aggregatedRatingCount = null, // Not included in simplified query
                             coverId = game.cover?.id,
@@ -262,7 +264,9 @@ class GameRepository @Inject constructor(
                             igdbId = game.id,
                             name = game.name,
                             summary = game.summary,
-                            firstReleaseDate = game.firstReleaseDate,
+                            firstReleaseDate = game.firstReleaseDate?.let { timestamp ->
+                                java.sql.Date(timestamp * 1000)
+                            },
                             aggregatedRating = game.aggregatedRating,
                             aggregatedRatingCount = null, // Not included in simplified query
                             coverId = game.cover?.id,
@@ -334,7 +338,9 @@ class GameRepository @Inject constructor(
                             igdbId = game.id,
                             name = game.name,
                             summary = game.summary,
-                            firstReleaseDate = game.firstReleaseDate,
+                            firstReleaseDate = game.firstReleaseDate?.let { timestamp ->
+                                java.sql.Date(timestamp * 1000)
+                            },
                             aggregatedRating = game.aggregatedRating,
                             aggregatedRatingCount = null, // Not included in simplified query
                             coverId = game.cover?.id,
@@ -403,7 +409,9 @@ class GameRepository @Inject constructor(
                             igdbId = game.id,
                             name = game.name,
                             summary = game.summary,
-                            firstReleaseDate = game.firstReleaseDate?.let { Date(it * 1000) },
+                            firstReleaseDate = game.firstReleaseDate?.let { timestamp ->
+                                java.sql.Date(timestamp * 1000)
+                            },
                             aggregatedRating = game.aggregatedRating,
                             aggregatedRatingCount = null,
                             coverId = game.cover?.id,

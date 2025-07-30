@@ -488,7 +488,6 @@ private fun ModernRegisterForm(
                     User(
                         username = username,
                         displayName = displayName,
-                        email = email,
                         password = password
                     )
                 )

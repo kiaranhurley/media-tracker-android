@@ -337,20 +337,13 @@ private fun ProfileHeader(user: User) {
                     color = CardTitleText
                 )
                 
-                if (user.bio != null) {
-                    Text(
-                        text = user.bio,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = CardBodyText,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(top = 8.dp)
-                    )
-                }
+                // Bio field not available in current User model
+                // TODO: Add bio field to User entity if needed
             }
             
-            // Member Since
+            // Member Since - createdAt not available in current User model
             Text(
-                text = "Member since ${SimpleDateFormat("MMMM yyyy", Locale.getDefault()).format(user.createdAt)}",
+                text = "Media Tracker Member",
                 style = MaterialTheme.typography.labelMedium,
                 color = CardSubtitleText
             )

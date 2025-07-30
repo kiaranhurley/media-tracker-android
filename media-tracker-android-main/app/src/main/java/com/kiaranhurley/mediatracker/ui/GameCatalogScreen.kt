@@ -352,7 +352,7 @@ private fun GameCard(
                     // Release Year
                     if (game.firstReleaseDate != null) {
                         Text(
-                            text = SimpleDateFormat("yyyy", Locale.getDefault()).format(Date(game.firstReleaseDate * 1000)),
+                            text = SimpleDateFormat("yyyy", Locale.getDefault()).format(game.firstReleaseDate),
                             style = MaterialTheme.typography.bodyMedium,
                             color = CardSubtitleText
                         )

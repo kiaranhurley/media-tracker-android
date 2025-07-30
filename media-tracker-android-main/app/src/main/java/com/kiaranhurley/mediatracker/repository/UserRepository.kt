@@ -26,31 +26,10 @@ class UserRepository @Inject constructor(
     }
     
     /**
-     * Get a user by their email
+     * Insert a new user
      */
-    suspend fun getUserByEmail(email: String): User? {
-        return userDao.getUserByEmail(email)
-    }
-    
-    /**
-     * Insert a new user and return the generated ID
-     */
-    suspend fun insertUser(user: User): Long {
-        return userDao.insertUser(user)
-    }
-    
-    /**
-     * Update an existing user
-     */
-    suspend fun updateUser(user: User) {
-        userDao.updateUser(user)
-    }
-    
-    /**
-     * Delete a user
-     */
-    suspend fun deleteUser(user: User) {
-        userDao.deleteUser(user)
+    suspend fun insertUser(user: User) {
+        userDao.insertUser(user)
     }
     
     /**
@@ -68,25 +47,13 @@ class UserRepository @Inject constructor(
     }
     
     /**
-     * Check if an email is already registered
-     */
-    suspend fun isEmailRegistered(email: String): Boolean {
-        return userDao.getUserByEmail(email) != null
-    }
-    
-    /**
      * Authenticate user with username and password
      */
     suspend fun authenticateUser(username: String, password: String): User? {
-        val user = userDao.getUserByUsername(username)
-        return if (user != null && user.password == password) user else null
+        return userDao.getUserByCredentials(username, password)
     }
-    
-    /**
-     * Authenticate user with email and password
-     */
-    suspend fun authenticateUserByEmail(email: String, password: String): User? {
-        val user = userDao.getUserByEmail(email)
-        return if (user != null && user.password == password) user else null
+
+    suspend fun updateDisplayName(newName: String) {
+        userDao.updateDisplayName(newName)
     }
 } 

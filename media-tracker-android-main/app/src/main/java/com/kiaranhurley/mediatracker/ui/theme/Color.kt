@@ -33,9 +33,10 @@ val AppBarText = Color(0xFFFFFFFF)           // Pure white text on app bars
 val AppBarSubtext = Color(0xFFE8F0F3)        // Light text for subtitles
 
 // Card and Surface text colors - FIXED FOR LIGHT BACKGROUNDS
-val CardTitleText = Color(0xFF1B2631)        // Dark text for light cards  
-val CardBodyText = Color(0xFF2C3E50)         // Dark gray for card content
-val CardSubtitleText = Color(0xFF556B7C)     // Medium gray for subtitles on cards
+val CardBackground = Color(0xFF2C3E50)        // Dark background for cards
+val CardTitleText = Color(0xFFE8F0F3)        // Light text for dark cards  
+val CardBodyText = Color(0xFFCCD6E0)         // Light gray for card content
+val CardSubtitleText = Color(0xFFADB5BD)     // Medium gray for subtitles on cards
 val SurfaceText = Color(0xFFE8F0F3)          // Light text for dark surfaces
 
 // Input field colors

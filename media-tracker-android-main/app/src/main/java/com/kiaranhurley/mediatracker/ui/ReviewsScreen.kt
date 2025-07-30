@@ -88,13 +88,12 @@ fun ReviewsScreen(
                     ReviewsList(
                         reviews = currentState.reviews,
                         onDeleteReview = { review ->
-                            viewModel.deleteReview(review.review.id)
+                            viewModel.deleteReview(review.review.reviewId)
                         },
                         onEditReview = { review ->
                             // Navigate to edit screen for the specific review
                             // For now, we'll just show a toast or a simple dialog
-                            // In a real app, you'd navigate to EditReviewScreen(review)
-                            println("Editing review: ${review.review.id}")
+                            println("Editing review: ${review.review.reviewId}")
                         }
                     )
                 }

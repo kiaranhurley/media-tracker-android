@@ -399,7 +399,7 @@ private fun GameDetails(game: Game) {
             
             if (game.firstReleaseDate != null) {
                 val releaseDate = SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault())
-                    .format(Date(game.firstReleaseDate!! * 1000))
+                                            .format(game.firstReleaseDate!!)
                 DetailItem(label = "Release Date", value = releaseDate)
             }
         }

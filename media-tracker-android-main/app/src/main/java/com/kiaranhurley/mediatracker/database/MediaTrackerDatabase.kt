@@ -21,7 +21,7 @@ import com.kiaranhurley.mediatracker.database.entities.*
         CustomList::class,
         ListItem::class
     ],
-    version = 3,
+    version = 4,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
@@ -50,6 +50,13 @@ abstract class MediaTrackerDatabase : RoomDatabase() {
             }
         }
 
+        private val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // No schema changes, just added getUserById query method to UserDao
+                // Migration is empty but needed to update Room's hash
+            }
+        }
+
         fun getDatabase(context: Context): MediaTrackerDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
@@ -57,7 +64,7 @@ abstract class MediaTrackerDatabase : RoomDatabase() {
                     MediaTrackerDatabase::class.java,
                     "media_tracker_database"
                 )
-                .addMigrations(MIGRATION_2_3)
+                .addMigrations(MIGRATION_2_3, MIGRATION_3_4)
                 .build()
                 INSTANCE = instance
                 instance

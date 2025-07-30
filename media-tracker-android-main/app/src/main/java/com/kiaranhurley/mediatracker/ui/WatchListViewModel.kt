@@ -110,10 +110,10 @@ class WatchListViewModel @Inject constructor(
                                     watchList = watchlistItem,
                                     title = game.name,
                                     posterUrl = game.coverUrl,
-                                    releaseInfo = game.firstReleaseDate?.let { timestamp ->
-                                        // Convert timestamp to year
+                                    releaseInfo = game.firstReleaseDate?.let { date ->
+                                        // Convert date to year
                                         java.text.SimpleDateFormat("yyyy", java.util.Locale.getDefault())
-                                            .format(java.util.Date(timestamp * 1000))
+                                            .format(date)
                                     }
                                 )
                             } else {
