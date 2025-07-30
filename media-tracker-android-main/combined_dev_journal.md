@@ -36,16 +36,19 @@ Building a personal media tracking app for movies and games. Users can rate, rev
 - ✅ **Full Feature Functionality** - All screens and ViewModels working correctly with proper data flow
 - ✅ **Database Integration Complete** - All DAO methods properly implemented and accessible
 - ✅ **Database Migration Fixed** - Updated to version 4 with proper migration for getUserById method addition
+- ✅ **Text Contrast Fixed** - Updated heading and text colors for better readability on light containers
 
 **IGDB API Integration Complete Overhaul:**
 - ✅ **Dependency Injection Fixed** - Added proper IgdbTokenProvider provider in NetworkModule with correct @Named dependencies
 - ✅ **Token Management Enhanced** - Automatic token refresh on 401 errors with proper caching and expiration handling
 - ✅ **ApiConfig Eliminated** - Removed mixed usage of ApiConfig and IgdbTokenProvider, now using pure dependency injection
 - ✅ **Error Handling Improved** - Added retry logic for authentication failures with comprehensive logging
-- ✅ **IGDB Query Syntax Fixed** - Corrected all queries to use proper IGDB API syntax with `cover.*` and field specifications
-- ✅ **Game Name Null Issue Resolved** - Fixed queries to properly return game names using correct IGDB field syntax
-- ✅ **Cover Image Handling Enhanced** - Updated models to handle `cover.*` response with image_id for better URL construction
-- ✅ **DLC Filtering Added** - Added `where version_parent = null & category = 0` to filter out DLCs and expansions
+- ✅ **IGDB Query Syntax Completely Fixed** - Simplified queries to use basic IGDB v4 API syntax without restrictive filters
+- ✅ **Removed Overly Restrictive Filters** - Eliminated `where version_parent = null & category = 0` that was blocking all results
+- ✅ **Cover URL Handling Simplified** - Reverted to simple `cover.url` instead of complex `cover.*` expansion
+- ✅ **Simple Test Query Added** - Added `testSimpleQuery()` method with minimal query for basic connectivity testing
+- ✅ **Progressive Query Testing** - GameCatalogViewModel now tests simple query first, then tries complex queries
+- ✅ **Query Syntax Aligned with IGDB v4** - All queries now use proper field syntax and sorting mechanisms
 - ✅ **Token Refresh on Failure** - Automatic token invalidation and refresh when API calls return 401 Unauthorized
 - ✅ **Basic API Connection Test** - Added testBasicApiConnection() method for debugging authentication issues
 - ✅ **Comprehensive Logging** - Enhanced debug output for token generation, API calls, and error states

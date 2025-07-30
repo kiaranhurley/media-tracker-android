@@ -225,7 +225,7 @@ private fun ErrorContent(
                 Text(
                     text = message,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = CardBodyText
+                    color = CardBodyOnLight
                 )
                 Button(
                     onClick = onRetry,

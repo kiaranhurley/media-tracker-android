@@ -148,11 +148,10 @@ class GameRepository @Inject constructor(
             return null
         }
         
-        // Use proper IGDB search query syntax
+        // Simplified IGDB search query syntax
         val searchQuery = """
             search "$query";
-            fields id,name,summary,cover.*,first_release_date,aggregated_rating;
-            where version_parent = null & category = 0;
+            fields id,name,summary,cover.url,first_release_date,aggregated_rating;
             limit 20;
         """.trimIndent()
         
@@ -185,16 +184,8 @@ class GameRepository @Inject constructor(
                             aggregatedRating = game.aggregatedRating,
                             aggregatedRatingCount = null,
                             coverId = game.cover?.id,
-                            coverUrl = game.cover?.let { cover ->
-                                when {
-                                    cover.url != null -> {
-                                        if (cover.url.startsWith("//")) "https:${cover.url}" else cover.url
-                                    }
-                                    cover.image_id != null -> {
-                                        "https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg"
-                                    }
-                                    else -> null
-                                }
+                            coverUrl = game.cover?.url?.let { url ->
+                                if (url.startsWith("//")) "https:$url" else url
                             },
                             platforms = null,
                             developer = null,
@@ -251,11 +242,10 @@ class GameRepository @Inject constructor(
             return null
         }
         
-        // Use proper IGDB query syntax with all needed fields
+        // Simplified IGDB popular games query
         val popularQuery = """
-            fields id,name,summary,cover.*,first_release_date,aggregated_rating;
-            where version_parent = null & category = 0;
-            sort popularity desc;
+            fields id,name,summary,cover.url,first_release_date,aggregated_rating;
+            sort aggregated_rating desc;
             limit 10;
         """.trimIndent()
         
@@ -289,16 +279,8 @@ class GameRepository @Inject constructor(
                             aggregatedRating = game.aggregatedRating,
                             aggregatedRatingCount = null,
                             coverId = game.cover?.id,
-                            coverUrl = game.cover?.let { cover ->
-                                when {
-                                    cover.url != null -> {
-                                        if (cover.url.startsWith("//")) "https:${cover.url}" else cover.url
-                                    }
-                                    cover.image_id != null -> {
-                                        "https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg"
-                                    }
-                                    else -> null
-                                }
+                            coverUrl = game.cover?.url?.let { url ->
+                                if (url.startsWith("//")) "https:$url" else url
                             },
                             platforms = null,
                             developer = null,
@@ -354,7 +336,7 @@ class GameRepository @Inject constructor(
         
         val detailQuery = """
             where id = $igdbId;
-            fields id,name,summary,cover.*,first_release_date,aggregated_rating;
+            fields id,name,summary,cover.url,first_release_date,aggregated_rating;
         """.trimIndent()
         
         println("DEBUG: GameRepository - IGDB Detail Query: $detailQuery")
@@ -416,6 +398,61 @@ class GameRepository @Inject constructor(
     }
 
     /**
+     * Simple test query to verify basic IGDB connectivity
+     */
+    suspend fun testSimpleQuery(): List<Game> {
+        return try {
+            val accessToken = igdbTokenProvider.getAccessToken()
+            if (accessToken == null) {
+                println("DEBUG: No access token available")
+                return emptyList()
+            }
+            
+            // Very simple query that should always return results
+            val testQuery = "fields id,name; limit 5;"
+            
+            println("DEBUG: GameRepository - Simple test query: $testQuery")
+            
+            val response = igdbService.getPopularGames(
+                clientId = igdbClientId,
+                authorization = "Bearer $accessToken",
+                query = testQuery
+            )
+            
+            if (response.isSuccessful && response.body() != null) {
+                val games = response.body()!!
+                println("DEBUG: Simple test query returned ${games.size} games")
+                games.mapNotNull { game ->
+                    if (game.name != null) {
+                        println("DEBUG: Found game: ${game.name}")
+                        Game(
+                            igdbId = game.id,
+                            name = game.name,
+                            summary = null,
+                            firstReleaseDate = null,
+                            aggregatedRating = null,
+                            aggregatedRatingCount = null,
+                            coverId = null,
+                            coverUrl = null,
+                            platforms = null,
+                            developer = null,
+                            publisher = null
+                        )
+                    } else null
+                }
+            } else {
+                println("DEBUG: Simple test query failed: ${response.code()}")
+                println("DEBUG: Error body: ${response.errorBody()?.string()}")
+                emptyList()
+            }
+        } catch (e: Exception) {
+            println("DEBUG: Simple test query exception: ${e.message}")
+            e.printStackTrace()
+            emptyList()
+        }
+    }
+
+    /**
      * Simple API test function with the most basic query
      */
     suspend fun testBasicApiConnection(): Boolean {
@@ -427,10 +464,9 @@ class GameRepository @Inject constructor(
                 return false
             }
             
-            // Basic test query with proper IGDB syntax
+            // Very basic test query without filters
             val testQuery = """
                 fields id,name;
-                where version_parent = null & category = 0;
                 limit 1;
             """.trimIndent()
             
@@ -499,16 +535,8 @@ class GameRepository @Inject constructor(
                             aggregatedRating = game.aggregatedRating,
                             aggregatedRatingCount = null,
                             coverId = game.cover?.id,
-                            coverUrl = game.cover?.let { cover ->
-                                when {
-                                    cover.url != null -> {
-                                        if (cover.url.startsWith("//")) "https:${cover.url}" else cover.url
-                                    }
-                                    cover.image_id != null -> {
-                                        "https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg"
-                                    }
-                                    else -> null
-                                }
+                            coverUrl = game.cover?.url?.let { url ->
+                                if (url.startsWith("//")) "https:$url" else url
                             },
                             platforms = null,
                             developer = null,

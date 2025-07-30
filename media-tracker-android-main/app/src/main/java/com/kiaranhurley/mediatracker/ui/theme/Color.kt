@@ -23,9 +23,16 @@ val TextDisabled = Color(0xFF6C757D)         // Muted gray
 val TextOnSurface = Color(0xFFDEE2E6)        // Text on elevated surfaces
 
 // Heading Colors - Optimized for readability
-val HeadingPrimary = Color(0xFFFFFFFF)       // Pure white for main headings
-val HeadingSecondary = Color(0xFFF1F3F5)     // Very light gray for secondary headings
+val HeadingPrimary = Color(0xFFFFFFFF)       // Pure white for main headings (dark backgrounds)
+val HeadingSecondary = Color(0xFF2C3E50)     // Dark gray for secondary headings (light containers)
 val HeadingAccent = BrandOrange              // Orange for accent headings
+
+// Light Container Text Colors - For cards and light backgrounds
+val HeadingOnLight = Color(0xFF1B2631)       // Dark text for light backgrounds
+val HeadingSecondaryOnLight = Color(0xFF2C3E50) // Dark gray for secondary headings on light
+val CardTitleOnLight = Color(0xFF1B2631)     // Dark title text for light cards
+val CardBodyOnLight = Color(0xFF2C3E50)      // Dark body text for light cards  
+val CardSubtitleOnLight = Color(0xFF5D6D7E)  // Medium dark gray for subtitles on light cards
 
 // TopAppBar specific colors for better contrast
 val AppBarBackground = Color(0xFF1C2833)     // Darker background for better contrast

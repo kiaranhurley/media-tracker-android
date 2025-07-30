@@ -50,15 +50,26 @@ class GameCatalogViewModel @Inject constructor(
                 
                 println("DEBUG: GameCatalogViewModel - API connection test result: $apiWorking")
                 
-                // Try to get popular games from API first, then fallback to local
-                val games = try {
-                    println("DEBUG: GameCatalogViewModel - Attempting to get popular games from API...")
-                    val apiGames = gameRepository.getPopularGamesFromApi()
-                    println("DEBUG: GameCatalogViewModel - API returned ${apiGames.size} games")
-                    
-                    // If no games from API, try manual token test
-                    if (apiGames.isEmpty()) {
-                        println("DEBUG: GameCatalogViewModel - No games from API, trying manual token test...")
+                // Test simple IGDB query first
+                println("DEBUG: Testing simple IGDB query first...")
+                val testGames = gameRepository.testSimpleQuery()
+                println("DEBUG: Simple test returned ${testGames.size} games")
+                
+                val games = if (testGames.isNotEmpty()) {
+                    println("DEBUG: Basic connectivity works, trying popular games...")
+                    try {
+                        val apiGames = gameRepository.getPopularGamesFromApi()
+                        println("DEBUG: GameCatalogViewModel - Popular games API returned ${apiGames.size} games")
+                        apiGames.ifEmpty { testGames } // Use test games as fallback
+                    } catch (e: Exception) {
+                        println("DEBUG: Popular games failed, using test results: ${e.message}")
+                        testGames
+                    }
+                } else {
+                    println("DEBUG: Basic connectivity failed, trying fallback options...")
+                    try {
+                        // Try manual token test as fallback
+                        println("DEBUG: GameCatalogViewModel - Trying manual token test...")
                         val manualGames = gameRepository.testManualToken()
                         println("DEBUG: GameCatalogViewModel - Manual token test returned ${manualGames.size} games")
                         
@@ -66,37 +77,15 @@ class GameCatalogViewModel @Inject constructor(
                             manualGames
                         } else {
                             // Finally try local data
-                            println("DEBUG: GameCatalogViewModel - Manual token failed, trying local data...")
+                            println("DEBUG: GameCatalogViewModel - All API methods failed, trying local data...")
                             val localGames = gameRepository.getAllGamesOrderedByRating().firstOrNull() ?: emptyList()
                             println("DEBUG: GameCatalogViewModel - Local database has ${localGames.size} games")
                             localGames
                         }
-                    } else {
-                        apiGames
-                    }
-                } catch (e: Exception) {
-                    println("DEBUG: GameCatalogViewModel - API failed with exception: ${e.javaClass.simpleName}: ${e.message}")
-                    e.printStackTrace()
-                    
-                    // Try manual token as fallback
-                    try {
-                        println("DEBUG: GameCatalogViewModel - Trying manual token fallback...")
-                        val manualGames = gameRepository.testManualToken()
-                        println("DEBUG: GameCatalogViewModel - Manual token fallback returned ${manualGames.size} games")
-                        if (manualGames.isNotEmpty()) {
-                            manualGames
-                        } else {
-                            // Finally fallback to local data if manual token fails
-                            println("DEBUG: GameCatalogViewModel - Manual token failed, trying local fallback...")
-                            val localGames = gameRepository.getAllGamesOrderedByRating().firstOrNull() ?: emptyList()
-                            println("DEBUG: GameCatalogViewModel - Local fallback has ${localGames.size} games")
-                            localGames
-                        }
-                    } catch (manualException: Exception) {
-                        println("DEBUG: GameCatalogViewModel - Manual token also failed with: ${manualException.javaClass.simpleName}: ${manualException.message}")
-                        manualException.printStackTrace()
+                    } catch (e: Exception) {
+                        println("DEBUG: GameCatalogViewModel - Fallback failed: ${e.message}")
+                        e.printStackTrace()
                         // Final fallback to local data
-                        println("DEBUG: GameCatalogViewModel - Trying final local fallback...")
                         val localGames = gameRepository.getAllGamesOrderedByRating().firstOrNull() ?: emptyList()
                         println("DEBUG: GameCatalogViewModel - Final local fallback has ${localGames.size} games")
                         localGames
