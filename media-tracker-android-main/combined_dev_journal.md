@@ -43,12 +43,14 @@ Building a personal media tracking app for movies and games. Users can rate, rev
 - ✅ **Token Management Enhanced** - Automatic token refresh on 401 errors with proper caching and expiration handling
 - ✅ **ApiConfig Eliminated** - Removed mixed usage of ApiConfig and IgdbTokenProvider, now using pure dependency injection
 - ✅ **Error Handling Improved** - Added retry logic for authentication failures with comprehensive logging
-- ✅ **IGDB Query Syntax Completely Fixed** - Simplified queries to use basic IGDB v4 API syntax without restrictive filters
-- ✅ **Removed Overly Restrictive Filters** - Eliminated `where version_parent = null & category = 0` that was blocking all results
-- ✅ **Cover URL Handling Simplified** - Reverted to simple `cover.url` instead of complex `cover.*` expansion
-- ✅ **Simple Test Query Added** - Added `testSimpleQuery()` method with minimal query for basic connectivity testing
-- ✅ **Progressive Query Testing** - GameCatalogViewModel now tests simple query first, then tries complex queries
-- ✅ **Query Syntax Aligned with IGDB v4** - All queries now use proper field syntax and sorting mechanisms
+- ✅ **IGDB Query Format Completely Fixed** - Updated all queries to use proper IGDB v4 API syntax with field expansion
+- ✅ **Cover URL Construction Fixed** - Implemented proper image URL construction using image_id from IGDB responses
+- ✅ **Comprehensive Field Queries** - Added cover.*, platforms.*, involved_companies.company.* for complete data
+- ✅ **Model Compatibility Enhanced** - Updated IgdbSearchGame to match IgdbGameResponse with all required fields
+- ✅ **Platform & Company Extraction** - Added proper extraction of platforms, developers, and publishers
+- ✅ **Helper Function Added** - Created constructIgdbImageUrl() for consistent image URL generation
+- ✅ **Test Queries Updated** - Fixed ApiTester queries to use proper IGDB syntax and field expansion
+- ✅ **Where Clause Optimization** - Using `aggregated_rating != null & aggregated_rating > 0` for better results
 - ✅ **Token Refresh on Failure** - Automatic token invalidation and refresh when API calls return 401 Unauthorized
 - ✅ **Basic API Connection Test** - Added testBasicApiConnection() method for debugging authentication issues
 - ✅ **Comprehensive Logging** - Enhanced debug output for token generation, API calls, and error states

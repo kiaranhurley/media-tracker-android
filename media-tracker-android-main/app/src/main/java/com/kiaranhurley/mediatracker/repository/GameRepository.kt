@@ -127,6 +127,13 @@ class GameRepository @Inject constructor(
     // API Integration Methods
     
     /**
+     * Helper function to construct IGDB image URLs from image IDs
+     */
+    private fun constructIgdbImageUrl(imageId: String?, size: String = "t_cover_big"): String? {
+        return imageId?.let { "https://images.igdb.com/igdb/image/upload/$size/$it.jpg" }
+    }
+    
+    /**
      * Search games from IGDB API and cache results with improved error handling and token refresh
      */
     suspend fun searchGamesFromApi(query: String): List<Game> {
@@ -148,10 +155,10 @@ class GameRepository @Inject constructor(
             return null
         }
         
-        // Simplified IGDB search query syntax
+        // Proper IGDB search query with all needed fields
         val searchQuery = """
             search "$query";
-            fields id,name,summary,cover.url,first_release_date,aggregated_rating;
+            fields id,name,summary,cover.*,first_release_date,aggregated_rating,aggregated_rating_count;
             limit 20;
         """.trimIndent()
         
@@ -182,14 +189,12 @@ class GameRepository @Inject constructor(
                                 java.sql.Date(timestamp * 1000)
                             },
                             aggregatedRating = game.aggregatedRating,
-                            aggregatedRatingCount = null,
+                            aggregatedRatingCount = game.aggregatedRatingCount,
                             coverId = game.cover?.id,
-                            coverUrl = game.cover?.url?.let { url ->
-                                if (url.startsWith("//")) "https:$url" else url
-                            },
-                            platforms = null,
-                            developer = null,
-                            publisher = null
+                            coverUrl = constructIgdbImageUrl(game.cover?.image_id),
+                            platforms = game.platforms?.joinToString(", ") { it.name },
+                            developer = game.involvedCompanies?.firstOrNull { it.developer }?.company?.name,
+                            publisher = game.involvedCompanies?.firstOrNull { it.publisher }?.company?.name
                         )
                     } catch (e: Exception) {
                         println("DEBUG: GameRepository - Error processing game ${game.id}: ${e.message}")
@@ -242,11 +247,12 @@ class GameRepository @Inject constructor(
             return null
         }
         
-        // Simplified IGDB popular games query
+        // Proper IGDB popular games query with comprehensive fields
         val popularQuery = """
-            fields id,name,summary,cover.url,first_release_date,aggregated_rating;
+            fields id,name,summary,cover.*,first_release_date,aggregated_rating,aggregated_rating_count,platforms.*,involved_companies.company.*;
+            where aggregated_rating != null & aggregated_rating > 0;
             sort aggregated_rating desc;
-            limit 10;
+            limit 20;
         """.trimIndent()
         
         println("DEBUG: GameRepository - IGDB Popular Query: $popularQuery")
@@ -277,14 +283,12 @@ class GameRepository @Inject constructor(
                                 java.sql.Date(timestamp * 1000)
                             },
                             aggregatedRating = game.aggregatedRating,
-                            aggregatedRatingCount = null,
+                            aggregatedRatingCount = game.aggregatedRatingCount,
                             coverId = game.cover?.id,
-                            coverUrl = game.cover?.url?.let { url ->
-                                if (url.startsWith("//")) "https:$url" else url
-                            },
-                            platforms = null,
-                            developer = null,
-                            publisher = null
+                            coverUrl = constructIgdbImageUrl(game.cover?.image_id),
+                            platforms = game.platforms?.joinToString(", ") { it.name },
+                            developer = game.involvedCompanies?.firstOrNull { it.developer }?.company?.name,
+                            publisher = game.involvedCompanies?.firstOrNull { it.publisher }?.company?.name
                         )
                     } catch (e: Exception) {
                         println("DEBUG: GameRepository - Error processing game ${game.id}: ${e.message}")
@@ -336,7 +340,8 @@ class GameRepository @Inject constructor(
         
         val detailQuery = """
             where id = $igdbId;
-            fields id,name,summary,cover.url,first_release_date,aggregated_rating;
+            fields id,name,summary,cover.*,first_release_date,aggregated_rating,aggregated_rating_count,platforms.*,involved_companies.company.*;
+            limit 1;
         """.trimIndent()
         
         println("DEBUG: GameRepository - IGDB Detail Query: $detailQuery")
@@ -497,11 +502,11 @@ class GameRepository @Inject constructor(
             println("DEBUG: GameRepository - Testing manual token...")
             val manualToken = "e1ts2afevujzvttx6t6d5czswcvced"
             
-            // IGDB requires a more specific query format
+            // Simpler test query that should work reliably
             val testQuery = """
                 fields id,name,summary,cover.*,first_release_date,aggregated_rating;
-                where version_parent = null & category = 0;
-                sort popularity desc;
+                where aggregated_rating != null;
+                sort aggregated_rating desc;
                 limit 10;
             """.trimIndent()
             
@@ -533,14 +538,12 @@ class GameRepository @Inject constructor(
                                 java.sql.Date(timestamp * 1000)
                             },
                             aggregatedRating = game.aggregatedRating,
-                            aggregatedRatingCount = null,
+                            aggregatedRatingCount = game.aggregatedRatingCount,
                             coverId = game.cover?.id,
-                            coverUrl = game.cover?.url?.let { url ->
-                                if (url.startsWith("//")) "https:$url" else url
-                            },
-                            platforms = null,
-                            developer = null,
-                            publisher = null
+                            coverUrl = constructIgdbImageUrl(game.cover?.image_id),
+                            platforms = game.platforms?.joinToString(", ") { it.name },
+                            developer = game.involvedCompanies?.firstOrNull { it.developer }?.company?.name,
+                            publisher = game.involvedCompanies?.firstOrNull { it.publisher }?.company?.name
                         )
                     } else {
                         println("DEBUG: GameRepository - Skipping game with null/empty name: ID=${game.id}")

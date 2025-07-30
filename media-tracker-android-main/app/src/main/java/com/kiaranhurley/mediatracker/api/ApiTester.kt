@@ -49,8 +49,12 @@ object ApiTester {
             if (token != null) {
                 Log.d(TAG, "✅ Got IGDB access token: ${token.take(10)}...")
                 
-                // Test simple query first
-                val simpleQuery = "search \"Minecraft\";\nfields name,summary,first_release_date,aggregated_rating,cover.url;\nlimit 5;"
+                // Test simple query first with proper IGDB syntax
+                val simpleQuery = """
+                    search "Minecraft";
+                    fields id,name,summary,first_release_date,aggregated_rating,cover.*;
+                    limit 5;
+                """.trimIndent()
                 Log.d(TAG, "Testing search query: $simpleQuery")
                 
                 val response = ApiConfig.igdbService.searchGames(
@@ -71,8 +75,13 @@ object ApiTester {
                     Log.d(TAG, "❌ IGDB Search Failed: ${response.code()} - ${response.message()}")
                 }
                 
-                // Test popular games query
-                val popularQuery = "fields name,summary,first_release_date,aggregated_rating,cover.url;\nwhere aggregated_rating != null;\nsort aggregated_rating desc;\nlimit 5;"
+                // Test popular games query with proper IGDB syntax
+                val popularQuery = """
+                    fields id,name,summary,first_release_date,aggregated_rating,cover.*;
+                    where aggregated_rating != null & aggregated_rating > 0;
+                    sort aggregated_rating desc;
+                    limit 5;
+                """.trimIndent()
                 Log.d(TAG, "Testing popular games query: $popularQuery")
                 
                 val popularResponse = ApiConfig.igdbService.getPopularGames(
