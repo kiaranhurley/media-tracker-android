@@ -2,6 +2,7 @@ package com.kiaranhurley.mediatracker.di
 
 import android.content.Context
 import com.kiaranhurley.mediatracker.R
+import com.kiaranhurley.mediatracker.api.IgdbTokenProvider
 import com.kiaranhurley.mediatracker.api.services.IgdbAuthService
 import com.kiaranhurley.mediatracker.api.services.IgdbService
 import com.kiaranhurley.mediatracker.api.services.TmdbService
@@ -106,5 +107,15 @@ object NetworkModule {
     @Named("igdb_client_secret")
     fun provideIgdbClientSecret(@ApplicationContext context: Context): String {
         return context.getString(R.string.igdb_client_secret)
+    }
+
+    @Provides
+    @Singleton
+    fun provideIgdbTokenProvider(
+        igdbAuthService: IgdbAuthService,
+        @Named("igdb_client_id") clientId: String,
+        @Named("igdb_client_secret") clientSecret: String
+    ): IgdbTokenProvider {
+        return IgdbTokenProvider(igdbAuthService, clientId, clientSecret)
     }
 } 

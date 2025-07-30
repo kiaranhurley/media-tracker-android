@@ -39,6 +39,17 @@ class GameCatalogViewModel @Inject constructor(
             try {
                 println("DEBUG: GameCatalogViewModel - Inside coroutine, thread: ${Thread.currentThread().name}")
                 
+                // Test basic API connection first
+                val apiWorking = try {
+                    println("DEBUG: GameCatalogViewModel - Testing basic API connection...")
+                    gameRepository.testBasicApiConnection()
+                } catch (e: Exception) {
+                    println("DEBUG: GameCatalogViewModel - API test failed: ${e.message}")
+                    false
+                }
+                
+                println("DEBUG: GameCatalogViewModel - API connection test result: $apiWorking")
+                
                 // Try to get popular games from API first, then fallback to local
                 val games = try {
                     println("DEBUG: GameCatalogViewModel - Attempting to get popular games from API...")

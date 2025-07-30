@@ -37,6 +37,19 @@ Building a personal media tracking app for movies and games. Users can rate, rev
 - ✅ **Database Integration Complete** - All DAO methods properly implemented and accessible
 - ✅ **Database Migration Fixed** - Updated to version 4 with proper migration for getUserById method addition
 
+**IGDB API Integration Complete Overhaul:**
+- ✅ **Dependency Injection Fixed** - Added proper IgdbTokenProvider provider in NetworkModule with correct @Named dependencies
+- ✅ **Token Management Enhanced** - Automatic token refresh on 401 errors with proper caching and expiration handling
+- ✅ **ApiConfig Eliminated** - Removed mixed usage of ApiConfig and IgdbTokenProvider, now using pure dependency injection
+- ✅ **Error Handling Improved** - Added retry logic for authentication failures with comprehensive logging
+- ✅ **IGDB Query Syntax Fixed** - Corrected all queries to use proper IGDB API syntax with `cover.*` and field specifications
+- ✅ **Game Name Null Issue Resolved** - Fixed queries to properly return game names using correct IGDB field syntax
+- ✅ **Cover Image Handling Enhanced** - Updated models to handle `cover.*` response with image_id for better URL construction
+- ✅ **DLC Filtering Added** - Added `where version_parent = null & category = 0` to filter out DLCs and expansions
+- ✅ **Token Refresh on Failure** - Automatic token invalidation and refresh when API calls return 401 Unauthorized
+- ✅ **Basic API Connection Test** - Added testBasicApiConnection() method for debugging authentication issues
+- ✅ **Comprehensive Logging** - Enhanced debug output for token generation, API calls, and error states
+
 ## **🎯 MAJOR MILESTONE COMPLETED - December 2025**
 
 ### **✅ Complete Feature Enhancement & UI Overhaul**

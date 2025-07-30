@@ -19,5 +19,8 @@ data class IgdbSearchGame(
 
 data class IgdbSearchCover(
     val id: Int,
-    val url: String?
+    val url: String?,
+    val image_id: String?, // IGDB image ID for constructing URLs
+    val width: Int?,
+    val height: Int?
 )

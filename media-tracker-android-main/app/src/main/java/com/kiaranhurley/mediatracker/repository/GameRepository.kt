@@ -127,138 +127,53 @@ class GameRepository @Inject constructor(
     // API Integration Methods
     
     /**
-     * Search games from IGDB API and cache results
+     * Search games from IGDB API and cache results with improved error handling and token refresh
      */
     suspend fun searchGamesFromApi(query: String): List<Game> {
         return try {
-            val accessToken = igdbTokenProvider.getAccessToken()
-            if (accessToken == null) {
-                println("DEBUG: Failed to get IGDB access token")
-                return searchGames(query)
-            }
-            
-            // Simplified search query - more likely to work
-            val searchQuery = """
-                search "$query";
-                fields name,summary,first_release_date,aggregated_rating,cover.url;
-                where name != null;
-                limit 20;
-            """.trimIndent()
-            
-            println("DEBUG: IGDB Search Query: $searchQuery")
-            println("DEBUG: Using token: ${accessToken.take(10)}...")
-            
-            val response = igdbService.searchGames(igdbClientId, "Bearer $accessToken", searchQuery)
-            
-            if (response.isSuccessful && response.body() != null) {
-                val games = response.body()!!
-                println("DEBUG: IGDB API returned ${games.size} games")
-                
-                val gameEntities = games.mapNotNull { game ->
-                    try {
-                        // Skip games with null names
-                        if (game.name == null) {
-                            println("DEBUG: Skipping game with null name, ID: ${game.id}")
-                            return@mapNotNull null
-                        }
-                        
-                        // Fix cover URL by adding https: prefix if missing
-                        val coverUrl = game.cover?.url?.let { url ->
-                            if (url.startsWith("//")) "https:$url" else url
-                        }
-                        
-                        println("DEBUG: Processing game: ${game.name}, Cover URL: $coverUrl")
-                        
-                        Game(
-                            igdbId = game.id,
-                            name = game.name,
-                            summary = game.summary,
-                            firstReleaseDate = game.firstReleaseDate?.let { timestamp ->
-                                java.sql.Date(timestamp * 1000)
-                            },
-                            aggregatedRating = game.aggregatedRating,
-                            aggregatedRatingCount = null, // Not included in simplified query
-                            coverId = game.cover?.id,
-                            coverUrl = coverUrl,
-                            platforms = null, // Will be fetched separately if needed
-                            developer = null, // Will be fetched separately if needed
-                            publisher = null // Will be fetched separately if needed
-                        )
-                    } catch (e: Exception) {
-                        println("DEBUG: Error processing game ${game.id}: ${e.message}")
-                        null
-                    }
-                }
-                
-                println("DEBUG: Mapped ${gameEntities.size} game entities")
-                
-                // Cache games in database
-                gameEntities.forEach { game ->
-                    insertOrUpdateGame(game)
-                }
-                
-                gameEntities
-            } else {
-                println("DEBUG: IGDB API failed: ${response.code()} - ${response.message()}")
-                println("DEBUG: Error body: ${response.errorBody()?.string()}")
-                emptyList()
-            }
+            // First attempt with current token
+            val result = executeSearchWithRetry(query, isRetry = false)
+            result ?: searchGames(query) // Fallback to local search
         } catch (e: Exception) {
-            println("DEBUG: IGDB Exception: ${e.message}")
+            println("DEBUG: GameRepository - IGDB search exception: ${e.message}")
             e.printStackTrace()
-            // Return cached results if API fails
-            searchGames(query)
+            searchGames(query) // Return cached results if API fails
         }
     }
     
-    /**
-     * Get popular games from IGDB API and cache results
-     */
-    suspend fun getPopularGamesFromApi(): List<Game> {
-        return try {
-            println("DEBUG: GameRepository - Starting getPopularGamesFromApi")
-            val accessToken = igdbTokenProvider.getAccessToken()
-            println("DEBUG: GameRepository - Got access token: ${accessToken?.take(10)}...")
-            
-            if (accessToken == null) {
-                println("DEBUG: GameRepository - Failed to get IGDB access token for popular games")
-                return getAllGamesOrderedByRating().firstOrNull() ?: emptyList()
-            }
-            
-            // Enhanced popular games query with more fields and better sorting
-            val popularQuery = """
-                fields name,summary,first_release_date,aggregated_rating,cover.url;
-                where name != null & first_release_date != null;
-                sort first_release_date desc;
-                limit 50;
-            """.trimIndent()
-            
-            println("DEBUG: GameRepository - IGDB Popular Query: $popularQuery")
-            println("DEBUG: GameRepository - Using Client ID: ${igdbClientId.take(10)}...")
-            println("DEBUG: GameRepository - Using Auth: Bearer ${accessToken.take(10)}...")
-            
-            val response = igdbService.getPopularGames(igdbClientId, "Bearer $accessToken", popularQuery)
-            println("DEBUG: GameRepository - API Response Code: ${response.code()}")
-            println("DEBUG: GameRepository - API Response Message: ${response.message()}")
-            
-            if (response.isSuccessful && response.body() != null) {
+    private suspend fun executeSearchWithRetry(query: String, isRetry: Boolean): List<Game>? {
+        val accessToken = igdbTokenProvider.getAccessToken()
+        if (accessToken == null) {
+            println("DEBUG: GameRepository - Failed to get IGDB access token")
+            return null
+        }
+        
+        // Use proper IGDB search query syntax
+        val searchQuery = """
+            search "$query";
+            fields id,name,summary,cover.*,first_release_date,aggregated_rating;
+            where version_parent = null & category = 0;
+            limit 20;
+        """.trimIndent()
+        
+        println("DEBUG: GameRepository - IGDB Search Query: $searchQuery")
+        println("DEBUG: GameRepository - Using token: ${accessToken.take(10)}...")
+        
+        val response = igdbService.searchGames(igdbClientId, "Bearer $accessToken", searchQuery)
+        
+        return when {
+            response.isSuccessful && response.body() != null -> {
                 val games = response.body()!!
-                println("DEBUG: GameRepository - IGDB Popular API returned ${games.size} games")
+                println("DEBUG: GameRepository - IGDB API returned ${games.size} games")
                 
                 val gameEntities = games.mapNotNull { game ->
                     try {
-                        // Skip games with null names
                         if (game.name == null) {
                             println("DEBUG: GameRepository - Skipping game with null name, ID: ${game.id}")
                             return@mapNotNull null
                         }
                         
-                        // Fix cover URL by adding https: prefix if missing
-                        val coverUrl = game.cover?.url?.let { url ->
-                            if (url.startsWith("//")) "https:$url" else url
-                        }
-                        
-                        println("DEBUG: GameRepository - Processing game: ${game.name}, Cover URL: $coverUrl")
+                        println("DEBUG: GameRepository - Processing game: ${game.name}")
                         
                         Game(
                             igdbId = game.id,
@@ -268,12 +183,22 @@ class GameRepository @Inject constructor(
                                 java.sql.Date(timestamp * 1000)
                             },
                             aggregatedRating = game.aggregatedRating,
-                            aggregatedRatingCount = null, // Not included in simplified query
+                            aggregatedRatingCount = null,
                             coverId = game.cover?.id,
-                            coverUrl = coverUrl,
-                            platforms = null, // Will be fetched separately if needed
-                            developer = null, // Will be fetched separately if needed
-                            publisher = null // Will be fetched separately if needed
+                            coverUrl = game.cover?.let { cover ->
+                                when {
+                                    cover.url != null -> {
+                                        if (cover.url.startsWith("//")) "https:${cover.url}" else cover.url
+                                    }
+                                    cover.image_id != null -> {
+                                        "https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg"
+                                    }
+                                    else -> null
+                                }
+                            },
+                            platforms = null,
+                            developer = null,
+                            publisher = null
                         )
                     } catch (e: Exception) {
                         println("DEBUG: GameRepository - Error processing game ${game.id}: ${e.message}")
@@ -289,50 +214,165 @@ class GameRepository @Inject constructor(
                 }
                 
                 gameEntities
-            } else {
+            }
+            response.code() == 401 && !isRetry -> {
+                println("DEBUG: GameRepository - 401 Unauthorized, refreshing token and retrying...")
+                igdbTokenProvider.refreshTokenOnApiFailure()
+                executeSearchWithRetry(query, isRetry = true) // Retry once
+            }
+            else -> {
                 println("DEBUG: GameRepository - IGDB API failed: ${response.code()} - ${response.message()}")
                 val errorBody = response.errorBody()?.string()
                 println("DEBUG: GameRepository - Error body: $errorBody")
-                emptyList()
+                null
             }
-        } catch (e: Exception) {
-            println("DEBUG: GameRepository - IGDB Exception: ${e.message}")
-            println("DEBUG: GameRepository - Stack trace:")
-            e.printStackTrace()
-            // Return cached results if API fails
-            getAllGamesOrderedByRating().firstOrNull() ?: emptyList()
         }
     }
     
     /**
-     * Get game details from IGDB API and update cache
+     * Get popular games from IGDB API and cache results with improved error handling
+     */
+    suspend fun getPopularGamesFromApi(): List<Game> {
+        return try {
+            println("DEBUG: GameRepository - Starting getPopularGamesFromApi")
+            val result = executePopularGamesWithRetry(isRetry = false)
+            result ?: (getAllGamesOrderedByRating().firstOrNull() ?: emptyList())
+        } catch (e: Exception) {
+            println("DEBUG: GameRepository - IGDB popular games exception: ${e.message}")
+            e.printStackTrace()
+            getAllGamesOrderedByRating().firstOrNull() ?: emptyList()
+        }
+    }
+    
+    private suspend fun executePopularGamesWithRetry(isRetry: Boolean): List<Game>? {
+        val accessToken = igdbTokenProvider.getAccessToken()
+        if (accessToken == null) {
+            println("DEBUG: GameRepository - Failed to get IGDB access token for popular games")
+            return null
+        }
+        
+        // Use proper IGDB query syntax with all needed fields
+        val popularQuery = """
+            fields id,name,summary,cover.*,first_release_date,aggregated_rating;
+            where version_parent = null & category = 0;
+            sort popularity desc;
+            limit 10;
+        """.trimIndent()
+        
+        println("DEBUG: GameRepository - IGDB Popular Query: $popularQuery")
+        println("DEBUG: GameRepository - Using token: ${accessToken.take(10)}...")
+        
+        val response = igdbService.getPopularGames(igdbClientId, "Bearer $accessToken", popularQuery)
+        println("DEBUG: GameRepository - API Response Code: ${response.code()}")
+        
+        return when {
+            response.isSuccessful && response.body() != null -> {
+                val games = response.body()!!
+                println("DEBUG: GameRepository - IGDB Popular API returned ${games.size} games")
+                
+                val gameEntities = games.mapNotNull { game ->
+                    try {
+                        if (game.name == null) {
+                            println("DEBUG: GameRepository - Skipping game with null name, ID: ${game.id}")
+                            return@mapNotNull null
+                        }
+                        
+                        println("DEBUG: GameRepository - Processing game: ${game.name}")
+                        
+                        Game(
+                            igdbId = game.id,
+                            name = game.name,
+                            summary = game.summary,
+                            firstReleaseDate = game.firstReleaseDate?.let { timestamp ->
+                                java.sql.Date(timestamp * 1000)
+                            },
+                            aggregatedRating = game.aggregatedRating,
+                            aggregatedRatingCount = null,
+                            coverId = game.cover?.id,
+                            coverUrl = game.cover?.let { cover ->
+                                when {
+                                    cover.url != null -> {
+                                        if (cover.url.startsWith("//")) "https:${cover.url}" else cover.url
+                                    }
+                                    cover.image_id != null -> {
+                                        "https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg"
+                                    }
+                                    else -> null
+                                }
+                            },
+                            platforms = null,
+                            developer = null,
+                            publisher = null
+                        )
+                    } catch (e: Exception) {
+                        println("DEBUG: GameRepository - Error processing game ${game.id}: ${e.message}")
+                        null
+                    }
+                }
+                
+                println("DEBUG: GameRepository - Mapped ${gameEntities.size} game entities")
+                
+                // Cache games in database
+                gameEntities.forEach { game ->
+                    insertOrUpdateGame(game)
+                }
+                
+                gameEntities
+            }
+            response.code() == 401 && !isRetry -> {
+                println("DEBUG: GameRepository - 401 Unauthorized, refreshing token and retrying...")
+                igdbTokenProvider.refreshTokenOnApiFailure()
+                executePopularGamesWithRetry(isRetry = true)
+            }
+            else -> {
+                println("DEBUG: GameRepository - IGDB API failed: ${response.code()} - ${response.message()}")
+                val errorBody = response.errorBody()?.string()
+                println("DEBUG: GameRepository - Error body: $errorBody")
+                null
+            }
+        }
+    }
+    
+    /**
+     * Get game details from IGDB API and update cache with improved error handling
      */
     suspend fun getGameDetailsFromApi(igdbId: Int): Game? {
         return try {
-            val accessToken = igdbTokenProvider.getAccessToken() ?: return getGameByIgdbId(igdbId)
-            val detailQuery = """
-                where id = $igdbId;
-                fields name,summary,first_release_date,aggregated_rating,cover.url;
-            """.trimIndent()
-            
-            val response = igdbService.getGameDetails(igdbClientId, "Bearer $accessToken", detailQuery)
-            if (response.isSuccessful && response.body() != null) {
+            executeGameDetailsWithRetry(igdbId, isRetry = false) ?: getGameByIgdbId(igdbId)
+        } catch (e: Exception) {
+            println("DEBUG: GameRepository - Game details exception: ${e.message}")
+            getGameByIgdbId(igdbId)
+        }
+    }
+    
+    private suspend fun executeGameDetailsWithRetry(igdbId: Int, isRetry: Boolean): Game? {
+        val accessToken = igdbTokenProvider.getAccessToken()
+        if (accessToken == null) {
+            println("DEBUG: GameRepository - Failed to get IGDB access token for game details")
+            return null
+        }
+        
+        val detailQuery = """
+            where id = $igdbId;
+            fields id,name,summary,cover.*,first_release_date,aggregated_rating;
+        """.trimIndent()
+        
+        println("DEBUG: GameRepository - IGDB Detail Query: $detailQuery")
+        
+        val response = igdbService.getGameDetails(igdbClientId, "Bearer $accessToken", detailQuery)
+        
+        return when {
+            response.isSuccessful && response.body() != null -> {
                 val games = response.body()!!
                 if (games.isNotEmpty()) {
                     val game = games[0]
                     try {
-                        // Skip games with null names
                         if (game.name == null) {
-                            println("DEBUG: Skipping game with null name, ID: ${game.id}")
+                            println("DEBUG: GameRepository - Skipping game with null name, ID: ${game.id}")
                             return null
                         }
                         
-                        // Fix cover URL by adding https: prefix if missing
-                        val coverUrl = game.cover?.url?.let { url ->
-                            if (url.startsWith("//")) "https:$url" else url
-                        }
-                        
-                        println("DEBUG: Processing game details: ${game.name}, Cover URL: $coverUrl")
+                        println("DEBUG: GameRepository - Processing game details: ${game.name}")
                         
                         val gameEntity = Game(
                             igdbId = game.id,
@@ -342,30 +382,74 @@ class GameRepository @Inject constructor(
                                 java.sql.Date(timestamp * 1000)
                             },
                             aggregatedRating = game.aggregatedRating,
-                            aggregatedRatingCount = null, // Not included in simplified query
+                            aggregatedRatingCount = null,
                             coverId = game.cover?.id,
-                            coverUrl = coverUrl,
-                            platforms = null, // Will be fetched separately if needed
-                            developer = null, // Will be fetched separately if needed
-                            publisher = null // Will be fetched separately if needed
+                            coverUrl = game.cover?.url?.let { url ->
+                                if (url.startsWith("//")) "https:$url" else url
+                            },
+                            platforms = null,
+                            developer = null,
+                            publisher = null
                         )
                         
                         // Update cache
                         insertOrUpdateGame(gameEntity)
                         gameEntity
                     } catch (e: Exception) {
-                        println("DEBUG: Error processing game details ${game.id}: ${e.message}")
+                        println("DEBUG: GameRepository - Error processing game details ${game.id}: ${e.message}")
                         null
                     }
                 } else {
                     null
                 }
-            } else {
+            }
+            response.code() == 401 && !isRetry -> {
+                println("DEBUG: GameRepository - 401 Unauthorized, refreshing token and retrying...")
+                igdbTokenProvider.refreshTokenOnApiFailure()
+                executeGameDetailsWithRetry(igdbId, isRetry = true)
+            }
+            else -> {
+                println("DEBUG: GameRepository - IGDB game details failed: ${response.code()} - ${response.message()}")
                 null
             }
+        }
+    }
+
+    /**
+     * Simple API test function with the most basic query
+     */
+    suspend fun testBasicApiConnection(): Boolean {
+        return try {
+            println("DEBUG: GameRepository - Testing basic IGDB API connection...")
+            val accessToken = igdbTokenProvider.getAccessToken()
+            if (accessToken == null) {
+                println("DEBUG: GameRepository - Failed to get access token for test")
+                return false
+            }
+            
+            // Basic test query with proper IGDB syntax
+            val testQuery = """
+                fields id,name;
+                where version_parent = null & category = 0;
+                limit 1;
+            """.trimIndent()
+            
+            println("DEBUG: GameRepository - Test Query: $testQuery")
+            
+            val response = igdbService.searchGames(igdbClientId, "Bearer $accessToken", testQuery)
+            val success = response.isSuccessful
+            
+            println("DEBUG: GameRepository - Test Result: ${if (success) "SUCCESS" else "FAILED"}")
+            println("DEBUG: GameRepository - Response Code: ${response.code()}")
+            
+            if (!success) {
+                println("DEBUG: GameRepository - Error Body: ${response.errorBody()?.string()}")
+            }
+            
+            success
         } catch (e: Exception) {
-            // Return cached result if API fails
-            getGameByIgdbId(igdbId)
+            println("DEBUG: GameRepository - Test Exception: ${e.message}")
+            false
         }
     }
 
@@ -415,8 +499,16 @@ class GameRepository @Inject constructor(
                             aggregatedRating = game.aggregatedRating,
                             aggregatedRatingCount = null,
                             coverId = game.cover?.id,
-                            coverUrl = game.cover?.url?.let { url ->
-                                if (url.startsWith("//")) "https:$url" else url
+                            coverUrl = game.cover?.let { cover ->
+                                when {
+                                    cover.url != null -> {
+                                        if (cover.url.startsWith("//")) "https:${cover.url}" else cover.url
+                                    }
+                                    cover.image_id != null -> {
+                                        "https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg"
+                                    }
+                                    else -> null
+                                }
                             },
                             platforms = null,
                             developer = null,
